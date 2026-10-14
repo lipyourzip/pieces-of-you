@@ -74,9 +74,8 @@ textarea{min-height:200px;resize:vertical;line-height:1.55;
 .btn.pz.ghost{background:none;color:var(--ink)}
 .pz[disabled]{opacity:.55;cursor:wait}
 .pz:active{transform:scale(.97)}
-.ready .rs{display:block;color:var(--soft);font-size:13px;text-decoration:none;margin-top:1px}
-.ready .rm{text-decoration:underline;text-underline-offset:3px}
-.ready{display:block;text-align:center;margin-top:14px;font-size:15px;color:var(--ink);text-decoration:none}
+.closed{text-align:center;font-weight:700;max-width:320px;line-height:1.4}
+.ready{display:block;width:max-content;margin:clamp(10px,2.4svh,18px) auto 0;padding:5px 16px;border:1.4px solid var(--ink);border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.04em;color:var(--ink);text-decoration:none}
 .cover .pre{font-size:clamp(20px,3.6svh,26px)}
 .cover .you{font-size:clamp(70px,min(26vw,15svh),132px)}
 .cover .vol{margin:4px 0 clamp(8px,2.4svh,24px)}
@@ -121,13 +120,13 @@ var WHAT=["journal","planner","coloring","calendar","bookmark","caricature","inv
 var OCC=["birthday","anniversary","valentine","mother","father","halloween","friendship","other"];
 var T={
 en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some stories deserve their own pages.",
- start:"Start",ready:"Browse the ready-made Pieces of YOU →",ready2:"By Lip Your Zip Art · digital, print-ready",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
+ start:"Start",closed:"Custom requests are paused right now – I'm fully booked. Please check back soon!",ready:"Limited Edition →",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
  intro1:"Pieces of YOU – Custom Edition is a personalized creative journal shaped around a person, a memory, a relationship, or a special occasion.",
  intro2:"Tell me a little about the person you're creating it for. I'll use your story as inspiration to create pages to write, draw, paint, color, and find the missing pieces.",
  intro3:"Each custom edition is created individually. Besides journals, I also create:",
  howT:"How it works",s1:"Send a custom request.",s2:"Tell me about the person and your ideas.",
- s3:"Receive a personalized proposal, price, and estimated delivery date.",s4:"Your Pieces of YOU edition is created after confirmation.",
- avail:"Available digitally worldwide. Printed editions are available in Türkiye only, made to order.",
+ s3:"Receive your edition details: the package, a set price, and your delivery date (within 10 days).",s4:"Your Pieces of YOU edition is created after confirmation.",
+ avail:"All editions are digital and print-ready, available worldwide. Want a printed copy? Just ask for a quote.",
  qWhat:"What would you like me to create?",qWho:"Who is it for?",qOcc:"What's the occasion?",qMore:"Tell me more",
  qIdea:"Tell me about your idea",hIdea:"What do you have in mind? Style, size, colors, references, anything that helps.",
  qPerson:"Tell me a little about this person.",hPerson:"Who are they to YOU? What do they love? What makes them laugh?",
@@ -143,13 +142,13 @@ en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some st
  occ:{birthday:"Birthday",anniversary:"Anniversary",valentine:"Valentine's Day",mother:"Mother's Day",father:"Father's Day",halloween:"Halloween",friendship:"Friendship",other:"Other / Just because"},
  sum:{title:"Pieces of YOU – Custom Request",what:"Request",who:"Who is it for",occ:"Occasion",more:"More about the occasion",idea:"Idea",person:"About this person",explore:"What the book should explore",lang:"Book language",date:"Needed by",name:"Name",mail:"Email",ig:"Instagram",none:"–"}},
 tr:{vol:"ÖZEL BASKI",tag:"Tek bir YOU için hazırlanmış bir kitap.",tag2:"Bazı hikâyeler kendi sayfalarını hak eder.",
- start:"Başla",ready:"Hazır Pieces of YOU'lara göz at →",ready2:"Lip Your Zip Art'tan · dijital, baskıya hazır",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
+ start:"Başla",closed:"Özel talepler şu an kapalı – yoğunluk var. Lütfen biraz sonra tekrar bak!",ready:"Limited Edition →",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
  intro1:"Pieces of YOU – Özel Baskı; bir kişi, bir anı, bir ilişki ya da özel bir gün etrafında şekillenen, kişiye özel bir yaratıcı günlüktür.",
  intro2:"Bu kitabı hazırladığın kişiyi biraz anlat. Hikâyenden ilham alarak, ona özel yazıp çizeceği, boyayacağı ve eksik parçalarını bulacağı sayfalar hazırlarım.",
  intro3:"Her özel baskı tek tek hazırlanır. Günlüklerin yanında şunları da hazırlıyorum:",
  howT:"Nasıl işliyor",s1:"Özel bir talep gönder.",s2:"Bana kişiyi ve fikirlerini anlat.",
- s3:"Sana özel bir öneri, fiyat ve tahmini teslim tarihi gelsin.",s4:"Onayından sonra Pieces of YOU baskın hazırlanır.",
- avail:"Dijital olarak dünya genelinde sunulur. Basılı baskı yalnızca Türkiye'de, siparişe özel hazırlanır.",
+ s3:"Baskının detayları sana ulaşır: paket, sabit fiyat ve teslim tarihi (en geç 10 gün içinde).",s4:"Onayından sonra Pieces of YOU baskın hazırlanır.",
+ avail:"Tüm baskılar dijitaldir ve baskıya hazırdır, dünyanın her yerinden alınabilir. Basılı kopya istersen benden teklif al.",
  qWhat:"Ne hazırlamamı istersin?",qWho:"Kimin için?",qOcc:"Hangi vesileyle?",qMore:"Biraz daha anlat",
  qIdea:"Fikrini anlat",hIdea:"Aklında ne var? Stil, boyut, renkler, referanslar, işime yarayacak her şey.",
  qPerson:"Bu kişiyi biraz anlat.",hPerson:"Senin için kim? Neleri sever? Neye güler?",
@@ -168,7 +167,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Tek bir YOU için hazırlanmış bir kitap.",tag2:"Ba
 var lang=(navigator.language||"en").toLowerCase().indexOf("tr")===0?"tr":"en";
 try{var sl=localStorage.getItem("pou-lang");if(sl==="tr"||sl==="en")lang=sl;}catch(e){}
 var A={what:"",who:"",occ:"",more:"",idea:"",person:"",explore:"",blang:"English",date:"",name:"",mail:"",ig:""};
-var cur="cover",err="";
+var cur="cover",err="",OPEN=true;
 var stage=document.getElementById("stage"),pn=document.getElementById("pn");
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
 function steps(){var s=["cover","about","how","what","who","occ","idea"];
@@ -226,8 +225,8 @@ function render(){
   if(cur==="cover"){
     body.appendChild(el("div","pre","Pieces of"));body.appendChild(el("div","you","YOU"));body.appendChild(el("div","vol",d.vol));
     var g=document.getElementById("t-grid").content.cloneNode(true);body.appendChild(g);
-    body.appendChild(el("p","tag",d.tag));body.appendChild(el("p","tag2",d.tag2));
-    pg.appendChild(body);var nav=el("div","nav solo");var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);pg.appendChild(nav);var rd=el("a","ready");rd.appendChild(el("span","rm",d.ready));rd.appendChild(el("span","rs",d.ready2));rd.href="https://www.shopier.com/lipyourzipart";rd.target="_blank";rd.rel="noopener";pg.appendChild(rd);pg.appendChild(brand(true));pg.classList.add("cover");
+    body.appendChild(el("p","tag",d.tag));body.appendChild(el("p","tag2",d.tag2));var rd=el("a","ready",d.ready);rd.href="https://www.shopier.com/lipyourzipart";rd.target="_blank";rd.rel="noopener";body.appendChild(rd);
+    pg.appendChild(body);var nav=el("div","nav solo");if(OPEN){var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);}else{nav.appendChild(el("p","closed",d.closed));}pg.appendChild(nav);pg.appendChild(brand(true));pg.classList.add("cover");
   }else if(cur==="about"){
     var s=el("div","stack");s.appendChild(el("p","lead",d.intro1));s.appendChild(el("p","",d.intro2));s.appendChild(el("p","note",d.intro3));
     var ul=el("ul","offer");WHAT.slice(1,-1).forEach(function(k){ul.appendChild(el("li","",d.what[k]));});s.appendChild(ul);
@@ -285,7 +284,7 @@ function validate(){
   }
   return true;
 }
-function go(dir){
+function go(dir){if(!OPEN&&cur==='cover')return;
   var s=steps(),i=s.indexOf(cur);
   if(dir>0){
     if(!validate()){var er=stage.querySelector(".err");if(er){er.textContent=err;er.classList.add("on");}return;}
@@ -320,6 +319,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target&&e.
 Array.prototype.forEach.call(document.querySelectorAll(".lang button"),function(x){x.setAttribute("aria-pressed",x.getAttribute("data-l")===lang?"true":"false");});
 document.documentElement.lang=lang;
 render();
+try{fetch('status.json?'+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(j){if(j&&j.open===false){OPEN=false;if(cur==='cover')render();}}).catch(function(){});}catch(e){}
 })();
 </script>
 
