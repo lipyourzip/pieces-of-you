@@ -70,7 +70,7 @@ textarea{min-height:200px;resize:vertical;line-height:1.55;
 .btn.pz{position:relative;background:none;border:0;border-radius:0;padding:0;height:54px;font:inherit;font-weight:700;font-size:17px;color:var(--paper);cursor:pointer;-webkit-tap-highlight-color:transparent}
 .pz svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
 .pz .lb{position:relative;display:block;line-height:54px;text-align:center}
-.pz.l .lb{padding-left:20px}.pz.r .lb{padding-right:20px}
+.pz .lb{padding:0 30px}
 .btn.pz.ghost{background:none;color:var(--ink)}
 .pz[disabled]{opacity:.55;cursor:wait}
 .pz:active{transform:scale(.97)}
@@ -193,18 +193,17 @@ function chipGroup(keys,labels,key,col){
 function qHead(page,q,h){page.appendChild(el("h2","q",q));if(h)page.appendChild(el("p","hint",h));}
 function errP(txt){var p=el("p","err",txt);p.setAttribute("role","alert");if(err)p.classList.add("on");return p;}
 function pzPath(w){
-  var x0=4,x1=w-24,y0=4,y1=50,rc=8,cy=27;
-  return "M"+(x0+rc)+" "+y0+"H"+(x1-rc)+"Q"+x1+" "+y0+" "+x1+" "+(y0+rc)+"V"+(cy-6)+
-  "C"+(x1+3)+" "+(cy-6)+" "+(x1+5)+" "+(cy-16)+" "+(x1+13)+" "+(cy-16)+"C"+(x1+21)+" "+(cy-16)+" "+(x1+21)+" "+(cy+16)+" "+(x1+13)+" "+(cy+16)+
-  "C"+(x1+5)+" "+(cy+16)+" "+(x1+3)+" "+(cy+6)+" "+x1+" "+(cy+6)+"V"+(y1-rc)+"Q"+x1+" "+y1+" "+(x1-rc)+" "+y1+"H"+(x0+rc)+"Q"+x0+" "+y1+" "+x0+" "+(y1-rc)+"V"+(y0+rc)+"Q"+x0+" "+y0+" "+(x0+rc)+" "+y0+"Z";}
+  var x0=4,x1=w-30,y0=4,y1=50,rc=9,cy=27;
+  return "M"+(x0+rc)+" "+y0+"H"+(x1-rc)+"Q"+x1+" "+y0+" "+x1+" "+(y0+rc)+"V"+(cy-7)+"H"+(x1+4)+"A12 12 0 1 1 "+(x1+4)+" "+(cy+7)+"H"+x1+
+  "V"+(y1-rc)+"Q"+x1+" "+y1+" "+(x1-rc)+" "+y1+"H"+(x0+rc)+"Q"+x0+" "+y1+" "+x0+" "+(y1-rc)+"V"+(cy+7)+"H"+(x0+4)+"A12 12 0 1 0 "+(x0+4)+" "+(cy-7)+"H"+x0+"V"+(y0+rc)+"Q"+x0+" "+y0+" "+(x0+rc)+" "+y0+"Z";}
 function pzBtn(text,dir,ghost,w){
   var b=el("button","btn pz "+(dir==="l"?"l":"r")+(ghost?" ghost":""));b.type="button";b.style.width=w+"px";
   var sv='<svg viewBox="0 0 '+w+' 54" aria-hidden="true"><path d="'+pzPath(w)+'" fill="'+(ghost?"#fff":"#111")+'" stroke="#111" stroke-width="1.6" stroke-linejoin="round"'+(dir==="l"?' transform="translate('+w+' 0) scale(-1 1)"':'')+'/></svg>';
   b.innerHTML=sv;b.appendChild(el("span","lb",text));return b;}
 function navBtns(isLast){
   var d=D(),nav=el("div","nav");
-  var b=pzBtn(d.back,"l",true,128);b.addEventListener("click",function(){go(-1);});
-  var n=pzBtn(isLast?d.send:d.next,"r",false,isLast?190:128);n.id="nextBtn";n.addEventListener("click",function(){go(1);});
+  var b=el("button","btn ghost",d.back);b.type="button";b.addEventListener("click",function(){go(-1);});
+  var n=el("button","btn",isLast?d.send:d.next);n.type="button";n.id="nextBtn";n.addEventListener("click",function(){go(1);});
   nav.appendChild(b);nav.appendChild(n);return nav;
 }
 function textArea(key,ph){var t=el("textarea");t.value=A[key];t.placeholder=ph||"";t.id="in-"+key;t.addEventListener("input",function(){A[key]=t.value;});return t;}
@@ -228,7 +227,7 @@ function render(){
     body.appendChild(el("div","pre","Pieces of"));body.appendChild(el("div","you","YOU"));body.appendChild(el("div","vol",d.vol));
     var g=document.getElementById("t-grid").content.cloneNode(true);body.appendChild(g);
     body.appendChild(el("p","tag",d.tag));body.appendChild(el("p","tag2",d.tag2));
-    pg.appendChild(body);var nav=el("div","nav solo");var b=pzBtn(d.start,"r",false,150);b.addEventListener("click",function(){go(1);});nav.appendChild(b);pg.appendChild(nav);var rd=el("a","ready");rd.appendChild(el("span","rm",d.ready));rd.appendChild(el("span","rs",d.ready2));rd.href="https://www.shopier.com/lipyourzipart";rd.target="_blank";rd.rel="noopener";pg.appendChild(rd);pg.appendChild(brand(true));pg.classList.add("cover");
+    pg.appendChild(body);var nav=el("div","nav solo");var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);pg.appendChild(nav);var rd=el("a","ready");rd.appendChild(el("span","rm",d.ready));rd.appendChild(el("span","rs",d.ready2));rd.href="https://www.shopier.com/lipyourzipart";rd.target="_blank";rd.rel="noopener";pg.appendChild(rd);pg.appendChild(brand(true));pg.classList.add("cover");
   }else if(cur==="about"){
     var s=el("div","stack");s.appendChild(el("p","lead",d.intro1));s.appendChild(el("p","",d.intro2));s.appendChild(el("p","note",d.intro3));
     var ul=el("ul","offer");WHAT.slice(1,-1).forEach(function(k){ul.appendChild(el("li","",d.what[k]));});s.appendChild(ul);
@@ -305,7 +304,7 @@ function summary(){
 }
 function submit(){
   var bc=document.getElementById("botcheck");if(bc&&bc.checked)return;
-  var btn=document.getElementById("nextBtn");btn.disabled=true;var lb=btn.querySelector(".lb");if(lb)lb.textContent=D().sending;
+  var btn=document.getElementById("nextBtn");btn.disabled=true;btn.textContent=D().sending;
   var payload={access_key:KEY,subject:"New custom request – "+T.en.what[A.what],from_name:"Pieces of YOU form",
     name:A.name.trim(),email:A.mail.trim(),message:summary(),botcheck:""};
   fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(payload)})
