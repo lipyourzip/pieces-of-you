@@ -43,8 +43,9 @@ h2{font-size:26px;line-height:1.25;font-weight:700;text-wrap:balance}
 .stack{display:grid;gap:14px;margin-top:14px}
 .lead{font-size:19px}
 .note{font-weight:700}
-.offer{list-style:none;padding:0;margin:2px 0 0;display:flex;flex-wrap:wrap;gap:8px}
-.offer li{border:1.6px solid var(--ink);border-radius:999px;padding:5px 14px;font-size:15px}
+.offer{list-style:none;padding:0;margin:0;display:grid;gap:4px}
+.offer li{font-size:17px;padding-left:22px;position:relative}
+.offer li::before{content:"–";position:absolute;left:4px}
 .steps{list-style:none;padding:0;display:grid;gap:14px;margin-top:18px}
 .steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center}
 .steps .n{width:44px;height:44px;border:1.6px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:18px}
@@ -95,7 +96,7 @@ textarea{min-height:200px;resize:vertical;line-height:1.55;
 <script>
 (function(){
 var KEY="eeb58ba4-4e6a-449b-b6c1-ed918c5f6670";
-var WHAT=["journal","planner","caricature","invitation","poster","other"];
+var WHAT=["journal","planner","coloring","calendar","bookmark","caricature","invitation","poster","other"];
 var OCC=["birthday","anniversary","valentine","mother","father","halloween","friendship","other"];
 var T={
 en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some stories deserve their own pages.",
@@ -116,7 +117,7 @@ en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some st
  eSend:"Something went wrong. Please try again, or send me a message on Instagram @lipyourzipart.",
  thT:"Your request has reached me",thP:"Thank you. I'll reply with a proposal, a price, and an estimated delivery date soon.",
  end:"Your story. Your pages. Your pieces.",by:"By LipYourZip Art.",
- what:{journal:"A custom Pieces of YOU journal",planner:"A custom notebook or planner",caricature:"A caricature or illustration",invitation:"An invitation (wedding, birthday, event)",poster:"A poster or print design",other:"Something else"},
+ what:{journal:"A custom Pieces of YOU journal",planner:"A custom notebook or planner",coloring:"A black-and-white coloring book",calendar:"A custom calendar",bookmark:"A custom bookmark",caricature:"A caricature or illustration",invitation:"An invitation (wedding, birthday, event)",poster:"A poster or print design",other:"Something else"},
  who:{myself:"For myself",someone:"For someone else"},
  occ:{birthday:"Birthday",anniversary:"Anniversary",valentine:"Valentine's Day",mother:"Mother's Day",father:"Father's Day",halloween:"Halloween",friendship:"Friendship",other:"Other / Just because"},
  sum:{title:"Pieces of YOU – Custom Request",what:"Request",who:"Who is it for",occ:"Occasion",more:"More about the occasion",idea:"Idea",person:"About this person",explore:"What the book should explore",lang:"Book language",date:"Needed by",name:"Name",mail:"Email",ig:"Instagram",none:"–"}},
@@ -138,7 +139,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Tek bir YOU için hazırlanmış bir kitap.",tag2:"Ba
  eSend:"Bir sorun oldu. Lütfen tekrar dene ya da Instagram'dan @lipyourzipart'a mesaj at.",
  thT:"Talebin bana ulaştı",thP:"Teşekkürler. Sana yakında bir öneri, fiyat ve tahmini teslim tarihiyle döneceğim.",
  end:"Hikâyen. Sayfaların. Parçaların.",by:"LipYourZip Art'tan.",
- what:{journal:"Kişiye özel Pieces of YOU günlüğü",planner:"Kişiye özel defter ya da planlayıcı",caricature:"Karikatür ya da illüstrasyon",invitation:"Davetiye (düğün, doğum günü, etkinlik)",poster:"Afiş ya da baskı tasarımı",other:"Başka bir şey"},
+ what:{journal:"Kişiye özel Pieces of YOU günlüğü",planner:"Kişiye özel defter ya da planlayıcı",coloring:"Siyah-beyaz boyama kitabı",calendar:"Kişiye özel takvim",bookmark:"Kişiye özel kitap ayracı",caricature:"Karikatür ya da illüstrasyon",invitation:"Davetiye (düğün, doğum günü, etkinlik)",poster:"Afiş ya da baskı tasarımı",other:"Başka bir şey"},
  who:{myself:"Kendim için",someone:"Başka biri için"},
  occ:{birthday:"Doğum günü",anniversary:"Yıl dönümü",valentine:"Sevgililer Günü",mother:"Anneler Günü",father:"Babalar Günü",halloween:"Cadılar Bayramı",friendship:"Arkadaşlık",other:"Diğer / İçimden geldi"},
  sum:{title:"Pieces of YOU – Özel Talep",what:"Talep",who:"Kimin için",occ:"Vesile",more:"Vesile hakkında",idea:"Fikir",person:"Bu kişi hakkında",explore:"Kitap neleri keşfetsin",lang:"Kitabın dili",date:"İstenen tarih",name:"Ad",mail:"E-posta",ig:"Instagram",none:"–"}}};
@@ -191,7 +192,7 @@ function render(){
     pg.appendChild(body);var nav=el("div","nav solo");var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);pg.appendChild(nav);
   }else if(cur==="about"){
     var s=el("div","stack");s.appendChild(el("p","lead",d.intro1));s.appendChild(el("p","",d.intro2));s.appendChild(el("p","note",d.intro3));
-    var ul=el("ul","offer");WHAT.slice(0,5).forEach(function(k){ul.appendChild(el("li","",d.what[k]));});s.appendChild(ul);
+    var ul=el("ul","offer");WHAT.slice(1,-1).forEach(function(k){ul.appendChild(el("li","",d.what[k]));});s.appendChild(ul);
     body.appendChild(s);pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="how"){
     body.appendChild(el("h2","",d.howT));var ol=el("ol","steps");
