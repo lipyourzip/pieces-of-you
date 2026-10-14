@@ -73,7 +73,8 @@ textarea{min-height:200px;resize:vertical;line-height:1.55;
 .btn.ghost{background:var(--paper);color:var(--ink)}
 .btn[disabled]{opacity:.55;cursor:wait}
 .pn{text-align:center;color:#999;font-size:14px;margin-top:22px;min-height:1.4em}
-.end .big{font-size:24px;font-weight:700;text-wrap:balance;text-align:center;margin-top:30px}
+.ig{display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:22px;color:var(--ink);text-decoration:none;font-size:15px}
+.end .big{font-size:24px;font-weight:700;text-wrap:balance;text-align:center;margin-top:26px}
 .end .by{margin-top:10px;color:var(--soft);font-size:15px;text-align:center}
 .end .x{margin-top:2px;font-size:15px;text-align:center}
 @media (prefers-reduced-motion:no-preference){.pg{animation:in .25s ease-out}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}.btn:active,.chip:active{transform:scale(.97)}}
@@ -115,7 +116,7 @@ en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some st
  qYou:"A little about YOU",lName:"Your name",lMail:"Your email",lIg:"Your Instagram username (optional)",
  eChoose:"Please choose one.",eText:"Please write a few words.",eMail:"Please enter a valid email.",eName:"Please write your name.",
  eSend:"Something went wrong. Please try again, or send me a message on Instagram @lipyourzipart.",
- thT:"Your request has reached me",thP:"Thank you. I'll reply with a proposal, a price, and an estimated delivery date soon.",
+ thank:"Thank YOU –",thP:"Your request has reached me. I'll reply with a proposal, a price, and an estimated delivery date soon.",
  end:"Your story. Your pages. Your pieces.",by:"By LipYourZip Art.",
  what:{journal:"A custom Pieces of YOU journal",planner:"A custom notebook or planner",coloring:"A black-and-white coloring book",calendar:"A custom calendar",bookmark:"A custom bookmark",caricature:"A caricature or illustration",invitation:"An invitation (wedding, birthday, event)",poster:"A poster or print design",other:"Something else"},
  who:{myself:"For myself",someone:"For someone else"},
@@ -137,7 +138,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Tek bir YOU için hazırlanmış bir kitap.",tag2:"Ba
  qYou:"Senden biraz bahset",lName:"Adın",lMail:"E-posta adresin",lIg:"Instagram kullanıcı adın (isteğe bağlı)",
  eChoose:"Lütfen birini seç.",eText:"Lütfen birkaç kelime yaz.",eMail:"Lütfen geçerli bir e-posta yaz.",eName:"Lütfen adını yaz.",
  eSend:"Bir sorun oldu. Lütfen tekrar dene ya da Instagram'dan @lipyourzipart'a mesaj at.",
- thT:"Talebin bana ulaştı",thP:"Teşekkürler. Sana yakında bir öneri, fiyat ve tahmini teslim tarihiyle döneceğim.",
+ thank:"Teşekkürler –",thP:"Talebin bana ulaştı. Sana yakında bir öneri, fiyat ve tahmini teslim tarihiyle döneceğim.",
  end:"Hikâyen. Sayfaların. Parçaların.",by:"LipYourZip Art'tan.",
  what:{journal:"Kişiye özel Pieces of YOU günlüğü",planner:"Kişiye özel defter ya da planlayıcı",coloring:"Siyah-beyaz boyama kitabı",calendar:"Kişiye özel takvim",bookmark:"Kişiye özel kitap ayracı",caricature:"Karikatür ya da illüstrasyon",invitation:"Davetiye (düğün, doğum günü, etkinlik)",poster:"Afiş ya da baskı tasarımı",other:"Başka bir şey"},
  who:{myself:"Kendim için",someone:"Başka biri için"},
@@ -221,12 +222,14 @@ function render(){
     var bc=el("input");bc.type="checkbox";bc.id="botcheck";bc.tabIndex=-1;bc.setAttribute("aria-hidden","true");bc.style.cssText="position:absolute;left:-9999px";body.appendChild(bc);
     body.appendChild(errP(err||d.eMail));pg.appendChild(body);pg.appendChild(navBtns(true));
   }else if(cur==="done"){
-    var e=el("div","end");
     body.appendChild(el("div","pre","Pieces of"));body.appendChild(el("div","you","YOU"));body.appendChild(el("div","vol",d.vol));
     body.appendChild(document.getElementById("t-grid").content.cloneNode(true));
-    body.appendChild(el("p","tag",d.thT));body.appendChild(el("p","tag2",d.thP));
-    e.appendChild(el("p","big",d.end));e.appendChild(el("p","by",d.by));e.appendChild(el("p","x","– xxx"));body.appendChild(e);
-    pg.appendChild(body);
+    var e=el("div","end");
+    e.appendChild(el("p","big",d.thank));e.appendChild(el("p","tag2",d.thP));e.appendChild(el("p","x","– xxx"));
+    var a=el("a","ig");a.href="https://instagram.com/lipyourzipart";a.target="_blank";a.rel="noopener";
+    a.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg>';
+    a.appendChild(el("span","","lipyourzipart"));e.appendChild(a);
+    body.appendChild(e);pg.appendChild(body);
   }
   renderNumber();
 }
