@@ -84,6 +84,8 @@ textarea{min-height:200px;resize:vertical;line-height:1.55;
 .cover .nav{margin-top:clamp(12px,2.6svh,28px)}
 .cover .brand{margin-top:clamp(10px,2svh,22px)}
 @media (max-height:700px){body{padding-block:10px 12px}.book{min-height:calc(100dvh - 22px)}.pg{padding-top:8px}.cover .tag2{display:none}.cover .grid{width:min(210px,18svh)}.cover .you{font-size:clamp(64px,min(24vw,13svh),132px)}.ready{margin-top:8px}.cover .brand{margin-top:8px}.cover .vol{margin-bottom:8px}}
+.pg:not(.cover) .nav{position:sticky;bottom:0;z-index:3;background:var(--paper);padding:10px 0 8px;margin-top:10px}
+@media (max-height:700px){h2,.q{min-height:0}}
 /* controls */
 .nav{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:28px}
 .nav.solo{justify-content:center}
@@ -135,7 +137,7 @@ en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some st
  qYou:"A little about YOU",lName:"Your name",lMail:"Your email",lIg:"Your Instagram username (optional)",
  eChoose:"Please choose one.",eText:"Please write a few words.",eMail:"Please enter a valid email.",eName:"Please write your name.",
  eSend:"Something went wrong. Please try again, or send me a message on Instagram @lipyourzipart.",
- thank:"Thank YOU –",thP:"Your request has reached me. I'll reply with a proposal, a price, and an estimated delivery date soon.",
+ thank:"Thank YOU –",thP:"Your request has reached me. I'll reply soon with your edition's details: the package, a set price, and your delivery date.",
  end:"Your story. Your pages. Your pieces.",by:"By LipYourZip Art.",
  what:{journal:"A custom Pieces of YOU journal",planner:"A custom notebook or planner",coloring:"A black-and-white coloring book",calendar:"A custom calendar",bookmark:"A custom bookmark",caricature:"A caricature or illustration",invitation:"An invitation (wedding, birthday, event)",poster:"A poster or print design",other:"Something else"},
  who:{myself:"For myself",someone:"For someone else"},
@@ -149,7 +151,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Tek bir YOU için hazırlanmış bir kitap.",tag2:"Ba
  howT:"Nasıl işliyor",s1:"Özel bir talep gönder.",s2:"Bana kişiyi ve fikirlerini anlat.",
  s3:"Baskının detayları sana ulaşır: paket, sabit fiyat ve teslim tarihi (en geç 10 gün içinde).",s4:"Onayından sonra Pieces of YOU baskın hazırlanır.",
  avail:"Tüm baskılar dijitaldir ve baskıya hazırdır, dünyanın her yerinden alınabilir. Basılı kopya istersen benden teklif al.",
- qWhat:"Ne hazırlamamı istersin?",qWho:"Kimin için?",qOcc:"Hangi vesileyle?",qMore:"Biraz daha anlat",
+ qWhat:"Ne hazırlamamı istersin?",qWho:"Kimin için?",qOcc:"Bu kitap ne için?",qMore:"Biraz daha anlat",
  qIdea:"Fikrini anlat",hIdea:"Aklında ne var? Stil, boyut, renkler, referanslar, işime yarayacak her şey.",
  qPerson:"Bu kişiyi biraz anlat.",hPerson:"Senin için kim? Neleri sever? Neye güler?",
  qExplore:"Bu kitap neleri keşfetsin istersin?",hExplore:"Bir anı, bir his, sadece ikinizin anladığı bir espri, bir hayal… (isteğe bağlı)",
@@ -157,7 +159,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Tek bir YOU için hazırlanmış bir kitap.",tag2:"Ba
  qYou:"Senden biraz bahset",lName:"Adın",lMail:"E-posta adresin",lIg:"Instagram kullanıcı adın (isteğe bağlı)",
  eChoose:"Lütfen birini seç.",eText:"Lütfen birkaç kelime yaz.",eMail:"Lütfen geçerli bir e-posta yaz.",eName:"Lütfen adını yaz.",
  eSend:"Bir sorun oldu. Lütfen tekrar dene ya da Instagram'dan @lipyourzipart'a mesaj at.",
- thank:"Teşekkürler –",thP:"Talebin bana ulaştı. Sana yakında bir öneri, fiyat ve tahmini teslim tarihiyle döneceğim.",
+ thank:"Teşekkürler –",thP:"Talebin bana ulaştı. Yakında sana baskının detaylarıyla döneceğim: paket, sabit fiyat ve teslim tarihi.",
  end:"Hikâyen. Sayfaların. Parçaların.",by:"LipYourZip Art'tan.",
  what:{journal:"Kişiye özel Pieces of YOU günlüğü",planner:"Kişiye özel defter ya da planlayıcı",coloring:"Siyah-beyaz boyama kitabı",calendar:"Kişiye özel takvim",bookmark:"Kişiye özel kitap ayracı",caricature:"Karikatür ya da illüstrasyon",invitation:"Davetiye (düğün, doğum günü, etkinlik)",poster:"Afiş ya da baskı tasarımı",other:"Başka bir şey"},
  who:{myself:"Kendim için",someone:"Başka biri için"},
@@ -226,7 +228,7 @@ function render(){
     body.appendChild(el("div","pre","Pieces of"));body.appendChild(el("div","you","YOU"));body.appendChild(el("div","vol",d.vol));
     var g=document.getElementById("t-grid").content.cloneNode(true);body.appendChild(g);
     body.appendChild(el("p","tag",d.tag));body.appendChild(el("p","tag2",d.tag2));var rd=el("a","ready",d.ready);rd.href="https://www.shopier.com/lipyourzipart";rd.target="_blank";rd.rel="noopener";body.appendChild(rd);
-    pg.appendChild(body);var nav=el("div","nav solo");if(OPEN){var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);}else{nav.appendChild(el("p","closed",d.closed));}pg.appendChild(nav);pg.appendChild(brand(true));pg.classList.add("cover");
+    pg.appendChild(body);var nav=el("div","nav solo");if(OPEN){var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);}else{nav.appendChild(el("p","closed",d.closed));}pg.appendChild(nav);pg.appendChild(brand());pg.classList.add("cover");
   }else if(cur==="about"){
     var s=el("div","stack");s.appendChild(el("p","lead",d.intro1));s.appendChild(el("p","",d.intro2));s.appendChild(el("p","note",d.intro3));
     var ul=el("ul","offer");WHAT.slice(1,-1).forEach(function(k){ul.appendChild(el("li","",d.what[k]));});s.appendChild(ul);
