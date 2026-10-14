@@ -58,12 +58,14 @@ h2{font-size:1.53em;line-height:1.2;font-weight:700;text-wrap:balance}
 .chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .chips.col{flex-direction:column;align-items:stretch}
 .chips.col .chip{border-radius:18px}
-.field{margin-top:.9em}
+.field{margin-top:1.1em}
 .lbl{display:block;font-weight:700;font-size:1em;margin-bottom:.4em}
 textarea,input[type=text],input[type=email],input[type=date]{width:100%;font:inherit;font-size:max(16px,1em);color:var(--ink);background:var(--paper);border:1.6px solid var(--ink);border-radius:16px;padding:.6em .95em;display:block}
 textarea{min-height:clamp(110px,24svh,200px);resize:vertical;line-height:1.55;
   background-image:radial-gradient(var(--dot) 1.2px,transparent 1.3px);background-size:22px 22px;background-position:11px 11px}
 ::placeholder{color:#8a8a8a}
+.field+.hint,.hint+.field{margin-top:.6em}
+.field+.hint{font-size:.92em}
 .err{display:none;font-weight:700;font-size:.88em;margin-top:.7em}
 .err.on{display:block}
 
@@ -126,11 +128,11 @@ en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some st
  start:"Start",closed:"Custom requests are paused right now – I'm fully booked. Please check back soon!",ready:"Explore Limited Pieces of YOU →",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
  intro1:"Pieces of YOU – Custom Edition is a personalized creative journal shaped around a person, a memory, a relationship, or a special occasion.",
  intro2:"Tell me a little about the person you're creating it for. I'll use your story as inspiration to create pages to write, draw, paint, color, and find the missing pieces.",
- intro3:"Each custom edition is created individually. Besides journals, I also create:",
- howT:"How it works",s1:"Send a custom request.",s2:"Tell me about the person and your ideas.",
+ intro3:"Each custom edition is created individually. Besides journals, I also create:",offerMore:"Or whatever you have in mind…",
+ howT:"How it works",s1:"Send a custom request.",s2:"Tell me about the person and everything on your mind and in your heart.",
  s3:"Receive your edition details: the package, a set price, and your delivery date (within 10 days).",s4:"Your Pieces of YOU edition is created after confirmation.",
  avail:"All editions are digital and print-ready, available worldwide. Want a printed copy? Tick the box on the date page and I'll send you a quote.",
- qWhat:"What would you like me to create?",qWho:"Who is it for?",qWhoMore:"Please specify (partner, son, daughter, friend…)",qOcc:"What's the occasion?",qMore:"Tell me more",
+ qWhat:"What would you like me to create?",qWho:"Who is it for?",qWhoMore:"Please specify (partner, son, daughter, friend…)",qSelfMore:"Optional: treating myself, just because, I'll leave it to you…",qOcc:"What's the occasion?",qMore:"Tell me more (optional)",qAsk:"Any questions for me?",hAsk:"Optional. Ask me anything before you send your request: price, timing, ideas…",
  qIdea:"Tell me about your idea",hIdea:"What do you have in mind? Style, size, colors, references, anything that helps.",
  qPerson:"Tell me a little about this person.",hPerson:"Who are they to YOU? What do they love? What makes them laugh?",
  qExplore:"What would you like this book to explore?",hExplore:"A memory, a feeling, a joke only the two of you get, a dream… (optional)",
@@ -143,21 +145,21 @@ en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some st
  what:{journal:"A custom Pieces of YOU journal",planner:"A custom notebook or planner",coloring:"A black-and-white coloring book",calendar:"A custom calendar",bookmark:"A custom bookmark",caricature:"A caricature or illustration",invitation:"An invitation (wedding, birthday, event)",poster:"A poster or print design",other:"Something else"},
  who:{myself:"For myself",someone:"For someone else"},
  occ:{birthday:"Birthday",anniversary:"Anniversary",valentine:"Valentine's Day",mother:"Mother's Day",father:"Father's Day",halloween:"Halloween",friendship:"Friendship",other:"Other / Just because"},
- sum:{quote:"Printed copy: YES – please send a quote",photos:"Photo link",title:"Pieces of YOU – Custom Request",what:"Request",who:"Who is it for",occ:"Occasion",more:"More about the occasion",idea:"Idea",person:"About this person",explore:"What the book should explore",lang:"Book language",date:"Needed by",name:"Name",mail:"Email",ig:"Instagram",none:"–"}},
+ sum:{ask:"Questions",quote:"Printed copy: YES – please send a quote",photos:"Photo link",title:"Pieces of YOU – Custom Request",what:"Request",who:"Who is it for",occ:"Occasion",more:"More about the occasion",idea:"Idea",person:"About this person",explore:"What the book should explore",lang:"Book language",date:"Needed by",name:"Name",mail:"Email",ig:"Instagram",none:"–"}},
 tr:{vol:"ÖZEL BASKI",tag:"Tek bir YOU için hazırlanmış bir kitap.",tag2:"Bazı hikâyeler kendi sayfalarını hak eder.",
  start:"Başla",closed:"Özel talepler şu an kapalı – yoğunluk var. Lütfen biraz sonra tekrar bak!",ready:"Sınırlı YOU Parçalarını Keşfet →",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
  intro1:"Pieces of YOU – Özel Baskı; bir kişi, bir anı, bir ilişki ya da özel bir gün etrafında şekillenen, kişiye özel bir yaratıcı günlüktür.",
- intro2:"Bu kitabı hazırladığın kişiyi biraz anlat. Hikâyenden ilham alarak, ona özel yazıp çizeceği, boyayacağı ve eksik parçalarını bulacağı sayfalar hazırlarım.",
- intro3:"Her özel baskı tek tek hazırlanır. Günlüklerin yanında şunları da hazırlıyorum:",
- howT:"Nasıl işliyor",s1:"Özel bir talep gönder.",s2:"Bana kişiyi ve fikirlerini anlat.",
+ intro2:"Bu kitabı hazırladığın kişiyi biraz anlat. Hikâyenden ilham alarak, ona özel yazıp çizebileceği, boyayabileceği ve eksik parçalarını bulabileceği sayfalar hazırlayabilirim.",
+ intro3:"Her özel baskı kişiye özel hazırlanır. Günlüklerin yanında şunları da tasarlayabilirim:",offerMore:"Ya da aklından ne geçiyorsa…",
+ howT:"Nasıl işliyor",s1:"Özel bir talep gönder.",s2:"Bana kişiyi ve kafandan, aklından, kalbinden geçenleri anlat.",
  s3:"Baskının detayları sana ulaşır: paket, sabit fiyat ve teslim tarihi (en geç 10 gün içinde).",s4:"Onayından sonra Pieces of YOU baskın hazırlanır.",
  avail:"Tüm baskılar dijitaldir ve baskıya hazırdır, dünyanın her yerinden alınabilir. Basılı kopya istersen tarih sayfasındaki kutuyu işaretle, sana teklif göndereyim.",
- qWhat:"Ne hazırlamamı istersin?",qWho:"Kimin için?",qWhoMore:"Lütfen belirt (sevgili, oğlum, kızım, arkadaşım…)",qOcc:"Bu kitap ne için?",qMore:"Biraz daha anlat",
+ qWhat:"Ne hazırlamamı istersin?",qWho:"Kimin için?",qWhoMore:"Lütfen belirt (sevgili, oğlum, kızım, arkadaşım…)",qSelfMore:"İsteğe bağlı: kendimi şımartmak istiyorum, içimden geldi, sana bırakıyorum…",qOcc:"Bu kitap ne için?",qMore:"Biraz daha anlat (isteğe bağlı)",qAsk:"Bana sormak istediğin bir şey var mı?",hAsk:"İsteğe bağlı. Talebini göndermeden önce merak ettiklerini sorabilirsin: fiyat, süre, fikirler…",
  qIdea:"Fikrini anlat",hIdea:"Aklında ne var? Stil, boyut, renkler, referanslar, işime yarayacak her şey.",
  qPerson:"Bu kişiyi biraz anlat.",hPerson:"Senin için kim? Neleri sever? Neye güler?",
  qExplore:"Bu kitap neleri keşfetsin istersin?",hExplore:"Bir anı, bir his, sadece ikinizin anladığı bir espri, bir hayal… (isteğe bağlı)",
  qLang:"Kitap hangi dilde olsun?",qDate:"Ne zamana ihtiyacın var?",hDate:"İsteğe bağlı. Bir son tarih yoksa boş bırak.",
- qYou:"Senden biraz bahset",lName:"Adın",lMail:"E-posta adresin",lIg:"Instagram kullanıcı adın (isteğe bağlı)",lQuote:"Basılı kopya da istiyorum – bana teklif gönder",lPhotos:"İlham için fotoğraflar (isteğe bağlı)",hPhotos:"Bir klasör linki yapıştır (Google Drive, WeTransfer…). Gönderdikten sonra fotoğrafları Instagram DM ile de yollayabilirsin.",
+ qYou:"Biraz senden bahset",lName:"Adın",lMail:"E-posta adresin",lIg:"Instagram kullanıcı adın (isteğe bağlı)",lQuote:"Basılı kopya da istiyorum – bana teklif gönder",lPhotos:"İlham için fotoğraflar (isteğe bağlı)",hPhotos:"Bir klasör linki yapıştır (Google Drive, WeTransfer…). Gönderdikten sonra fotoğrafları Instagram DM ile de yollayabilirsin.",
  eChoose:"Lütfen birini seç.",eText:"Lütfen birkaç kelime yaz.",eMail:"Lütfen geçerli bir e-posta yaz.",eName:"Lütfen adını yaz.",
  eSend:"Bir sorun oldu. Lütfen tekrar dene ya da Instagram'dan @lipyourzipart'a mesaj at.",
  thank:"Teşekkürler –",thP:"Talebin bana ulaştı. Yakında sana baskının detaylarıyla döneceğim: paket, sabit fiyat ve teslim tarihi.",
@@ -165,17 +167,17 @@ tr:{vol:"ÖZEL BASKI",tag:"Tek bir YOU için hazırlanmış bir kitap.",tag2:"Ba
  what:{journal:"Kişiye özel Pieces of YOU günlüğü",planner:"Kişiye özel defter ya da planlayıcı",coloring:"Siyah-beyaz boyama kitabı",calendar:"Kişiye özel takvim",bookmark:"Kişiye özel kitap ayracı",caricature:"Karikatür ya da illüstrasyon",invitation:"Davetiye (düğün, doğum günü, etkinlik)",poster:"Afiş ya da baskı tasarımı",other:"Başka bir şey"},
  who:{myself:"Kendim için",someone:"Başka biri için"},
  occ:{birthday:"Doğum günü",anniversary:"Yıl dönümü",valentine:"Sevgililer Günü",mother:"Anneler Günü",father:"Babalar Günü",halloween:"Cadılar Bayramı",friendship:"Arkadaşlık",other:"Diğer / İçimden geldi"},
- sum:{quote:"Basılı kopya: EVET – teklif istiyor",photos:"Fotoğraf linki",title:"Pieces of YOU – Özel Talep",what:"Talep",who:"Kimin için",occ:"Vesile",more:"Vesile hakkında",idea:"Fikir",person:"Bu kişi hakkında",explore:"Kitap neleri keşfetsin",lang:"Kitabın dili",date:"İstenen tarih",name:"Ad",mail:"E-posta",ig:"Instagram",none:"–"}}};
+ sum:{ask:"Sorular",quote:"Basılı kopya: EVET – teklif istiyor",photos:"Fotoğraf linki",title:"Pieces of YOU – Özel Talep",what:"Talep",who:"Kimin için",occ:"Vesile",more:"Vesile hakkında",idea:"Fikir",person:"Bu kişi hakkında",explore:"Kitap neleri keşfetsin",lang:"Kitabın dili",date:"İstenen tarih",name:"Ad",mail:"E-posta",ig:"Instagram",none:"–"}}};
 
 var lang=(navigator.language||"en").toLowerCase().indexOf("tr")===0?"tr":"en";
 try{var sl=localStorage.getItem("pou-lang");if(sl==="tr"||sl==="en")lang=sl;}catch(e){}
-var A={whoMore:"",quote:"",photos:"",what:"",who:"",occ:"",more:"",idea:"",person:"",explore:"",blang:"English",date:"",name:"",mail:"",ig:""};
+var A={selfMore:"",ask:"",whoMore:"",quote:"",photos:"",what:"",who:"",occ:"",more:"",idea:"",person:"",explore:"",blang:"English",date:"",name:"",mail:"",ig:""};
 var cur="cover",err="",OPEN=true;
 var stage=document.getElementById("stage"),pn=document.getElementById("pn");
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
 function steps(){var s=["cover","about","about2","how","what","who","occ","idea"];
   if(A.what==="journal")s.push("person","explore","blang");
-  s.push("date","you","done");return s;}
+  s.push("date","ask","you","done");return s;}
 function D(){return T[lang];}
 
 function chipGroup(keys,labels,key,col){
@@ -186,7 +188,7 @@ function chipGroup(keys,labels,key,col){
       Array.prototype.forEach.call(box.children,function(c){c.setAttribute("aria-pressed","false");});
       b.setAttribute("aria-pressed","true");
       var er=stage.querySelector(".err");if(er)er.classList.remove("on");
-      Array.prototype.forEach.call(stage.querySelectorAll("[data-more]"),function(m){var kv=m.getAttribute("data-more").split(":");m.hidden=A[kv[0]]!==kv[1];});
+      Array.prototype.forEach.call(stage.querySelectorAll("[data-more]"),function(m){var kv=m.getAttribute("data-more").split(":");m.hidden=kv[1]==="*"?!A[kv[0]]:A[kv[0]]!==kv[1];});
       if(key==="what"){renderNumber();}
     });
     box.appendChild(b);});
@@ -235,7 +237,7 @@ function render(){
     body.appendChild(s);pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="about2"){
     var s=el("div","stack");s.appendChild(el("p","note",d.intro3));
-    var ul=el("ul","offer");WHAT.slice(1,-1).forEach(function(k){ul.appendChild(el("li","",d.what[k]));});s.appendChild(ul);
+    var ul=el("ul","offer");WHAT.slice(1,-1).forEach(function(k){ul.appendChild(el("li","",d.what[k]));});ul.appendChild(el("li","",d.offerMore));s.appendChild(ul);
     body.appendChild(s);pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="how"){
     body.appendChild(el("h2","",d.howT));var ol=el("ol","steps");
@@ -244,10 +246,10 @@ function render(){
   }else if(cur==="what"){
     qHead(body,d.qWhat);body.appendChild(chipGroup(WHAT,d.what,"what",true));body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="who"){
-    qHead(body,d.qWho);body.appendChild(chipGroup(["myself","someone"],d.who,"who",false));var wm=inp("whoMore","text",d.qWhoMore);wm.setAttribute("data-more","who:someone");wm.hidden=A.who!=="someone";body.appendChild(wm);body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
+    qHead(body,d.qWho);body.appendChild(chipGroup(["myself","someone"],d.who,"who",false));var wm=inp("whoMore","text",d.qWhoMore);wm.setAttribute("data-more","who:someone");wm.hidden=A.who!=="someone";body.appendChild(wm);var sm=inp("selfMore","text",d.qSelfMore);sm.setAttribute("data-more","who:myself");sm.hidden=A.who!=="myself";body.appendChild(sm);body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="occ"){
     qHead(body,d.qOcc);body.appendChild(chipGroup(OCC,d.occ,"occ",false));
-    var m=inp("more","text",d.qMore);m.setAttribute("data-more","occ:other");m.hidden=A.occ!=="other";body.appendChild(m);
+    var m=inp("more","text",d.qMore);m.setAttribute("data-more","occ:*");m.hidden=!A.occ;body.appendChild(m);
     body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="idea"){
     qHead(body,d.qIdea,d.hIdea);body.appendChild(textArea("idea"));body.appendChild(inp("photos","text",d.lPhotos));body.appendChild(el("p","hint",d.hPhotos));body.appendChild(errP(d.eText));pg.appendChild(body);pg.appendChild(navBtns(false));
@@ -259,6 +261,8 @@ function render(){
     qHead(body,d.qLang);body.appendChild(chipGroup(["English","Türkçe"],{English:"English","Türkçe":"Türkçe"},"blang",false));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="date"){
     qHead(body,d.qDate,d.hDate);var f=el("div","field");var i=el("input");i.type="date";i.id="in-date";i.value=A.date;i.addEventListener("input",function(){A.date=i.value;});f.appendChild(i);body.appendChild(f);var qb=el("button","chip",d.lQuote);qb.type="button";qb.style.marginTop="18px";qb.setAttribute("aria-pressed",A.quote?"true":"false");qb.addEventListener("click",function(){A.quote=A.quote?"":"yes";qb.setAttribute("aria-pressed",A.quote?"true":"false");});body.appendChild(qb);pg.appendChild(body);pg.appendChild(navBtns(false));
+  }else if(cur==="ask"){
+    qHead(body,d.qAsk,d.hAsk);body.appendChild(textArea("ask"));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="you"){
     qHead(body,d.qYou);body.appendChild(inp("name","text",d.lName,"name"));body.appendChild(inp("mail","email",d.lMail,"email"));body.appendChild(inp("ig","text",d.lIg));
     var bc=el("input");bc.type="checkbox";bc.id="botcheck";bc.tabIndex=-1;bc.setAttribute("aria-hidden","true");bc.style.cssText="position:absolute;left:-9999px";body.appendChild(bc);
@@ -300,11 +304,11 @@ function go(dir){if(!OPEN&&cur==='cover')return;
 }
 function summary(){
   var d=D(),s=d.sum,v=function(x){x=(x||"").trim();return x?x:s.none;};
-  var L=[s.title,"",s.what+": "+d.what[A.what],s.who+": "+d.who[A.who]+((A.who==="someone"&&(A.whoMore||"").trim())?" – "+A.whoMore.trim():""),s.occ+": "+d.occ[A.occ]];
-  if(A.occ==="other")L.push(s.more+": "+v(A.more));
+  var L=[s.title,"",s.what+": "+d.what[A.what],s.who+": "+d.who[A.who]+((A.who==="someone"&&(A.whoMore||"").trim())?" – "+A.whoMore.trim():(A.who==="myself"&&(A.selfMore||"").trim())?" – "+A.selfMore.trim():""),s.occ+": "+d.occ[A.occ]];
+  if((A.more||"").trim())L.push(s.more+": "+A.more.trim());
   L.push("",s.idea+":",v(A.idea));if((A.photos||"").trim())L.push("",s.photos+": "+A.photos.trim());
   if(A.what==="journal")L.push("",s.person+":",v(A.person),"",s.explore+":",v(A.explore),"",s.lang+": "+A.blang);
-  if(A.quote)L.push("",s.quote);L.push("",s.date+": "+v(A.date),s.name+": "+v(A.name),s.mail+": "+v(A.mail),s.ig+": "+v(A.ig));
+  if(A.quote)L.push("",s.quote);if((A.ask||"").trim())L.push("",s.ask+":",A.ask.trim());L.push("",s.date+": "+v(A.date),s.name+": "+v(A.name),s.mail+": "+v(A.mail),s.ig+": "+v(A.ig));
   return L.join("\n");
 }
 function submit(){
