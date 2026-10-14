@@ -37,8 +37,8 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .tag2{margin-top:2px;color:var(--soft);text-align:center}
 
 /* content pages */
-h2{font-size:26px;line-height:1.25;font-weight:700;text-wrap:balance}
-.q{font-size:26px;line-height:1.25;font-weight:700;text-wrap:balance;margin-bottom:6px}
+h2{font-size:26px;line-height:1.25;font-weight:700;text-wrap:balance;min-height:2.5em}
+.q{font-size:26px;line-height:1.25;font-weight:700;text-wrap:balance;margin-bottom:6px;min-height:2.5em}
 .hint{color:var(--soft);font-size:15px;margin-bottom:20px}
 .stack{display:grid;gap:14px;margin-top:14px}
 .lead{font-size:19px}
@@ -66,6 +66,25 @@ textarea{min-height:200px;resize:vertical;line-height:1.55;
 .err{display:none;font-weight:700;font-size:15px;margin-top:14px}
 .err.on{display:block}
 
+#stage{flex:1;display:flex;flex-direction:column}
+.btn.pz{position:relative;background:none;border:0;border-radius:0;padding:0;height:54px;font:inherit;font-weight:700;font-size:17px;color:var(--paper);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.pz svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.pz .lb{position:relative;display:block;line-height:54px;text-align:center}
+.pz.l .lb{padding-left:20px}.pz.r .lb{padding-right:20px}
+.btn.pz.ghost{background:none;color:var(--ink)}
+.pz[disabled]{opacity:.55;cursor:wait}
+.pz:active{transform:scale(.97)}
+.ready .rs{display:block;color:var(--soft);font-size:13px;text-decoration:none;margin-top:1px}
+.ready .rm{text-decoration:underline;text-underline-offset:3px}
+.ready{display:block;text-align:center;margin-top:14px;font-size:15px;color:var(--ink);text-decoration:none}
+.cover .pre{font-size:clamp(20px,3.6svh,26px)}
+.cover .you{font-size:clamp(70px,min(26vw,15svh),132px)}
+.cover .vol{margin:4px 0 clamp(8px,2.4svh,24px)}
+.cover .grid{width:min(210px,22svh);max-width:58%}
+.cover .tag{margin-top:clamp(10px,2.4svh,24px);font-size:clamp(16px,2.4svh,19px)}
+.cover .nav{margin-top:clamp(12px,2.6svh,28px)}
+.cover .brand{margin-top:clamp(10px,2svh,22px)}
+@media (max-height:700px){body{padding-block:10px 12px}.book{min-height:calc(100dvh - 22px)}.pg{padding-top:8px}.cover .tag2{display:none}.cover .grid{width:min(210px,18svh)}.cover .you{font-size:clamp(64px,min(24vw,13svh),132px)}.ready{margin-top:8px}.cover .brand{margin-top:8px}.cover .vol{margin-bottom:8px}}
 /* controls */
 .nav{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:28px}
 .nav.solo{justify-content:center}
@@ -102,9 +121,9 @@ var WHAT=["journal","planner","coloring","calendar","bookmark","caricature","inv
 var OCC=["birthday","anniversary","valentine","mother","father","halloween","friendship","other"];
 var T={
 en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some stories deserve their own pages.",
- start:"Start",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
+ start:"Start",ready:"Browse the ready-made Pieces of YOU →",ready2:"By Lip Your Zip Art · digital, print-ready",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
  intro1:"Pieces of YOU – Custom Edition is a personalized creative journal shaped around a person, a memory, a relationship, or a special occasion.",
- intro2:"Tell me a little about the person you're creating it for. I'll use your story as inspiration to create pages to write, draw, paint, and find the missing pieces.",
+ intro2:"Tell me a little about the person you're creating it for. I'll use your story as inspiration to create pages to write, draw, paint, color, and find the missing pieces.",
  intro3:"Each custom edition is created individually. Besides journals, I also create:",
  howT:"How it works",s1:"Send a custom request.",s2:"Tell me about the person and your ideas.",
  s3:"Receive a personalized proposal, price, and estimated delivery date.",s4:"Your Pieces of YOU edition is created after confirmation.",
@@ -124,7 +143,7 @@ en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some st
  occ:{birthday:"Birthday",anniversary:"Anniversary",valentine:"Valentine's Day",mother:"Mother's Day",father:"Father's Day",halloween:"Halloween",friendship:"Friendship",other:"Other / Just because"},
  sum:{title:"Pieces of YOU – Custom Request",what:"Request",who:"Who is it for",occ:"Occasion",more:"More about the occasion",idea:"Idea",person:"About this person",explore:"What the book should explore",lang:"Book language",date:"Needed by",name:"Name",mail:"Email",ig:"Instagram",none:"–"}},
 tr:{vol:"ÖZEL BASKI",tag:"Tek bir YOU için hazırlanmış bir kitap.",tag2:"Bazı hikâyeler kendi sayfalarını hak eder.",
- start:"Başla",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
+ start:"Başla",ready:"Hazır Pieces of YOU'lara göz at →",ready2:"Lip Your Zip Art'tan · dijital, baskıya hazır",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
  intro1:"Pieces of YOU – Özel Baskı; bir kişi, bir anı, bir ilişki ya da özel bir gün etrafında şekillenen, kişiye özel bir yaratıcı günlüktür.",
  intro2:"Bu kitabı hazırladığın kişiyi biraz anlat. Hikâyenden ilham alarak, ona özel yazıp çizeceği, boyayacağı ve eksik parçalarını bulacağı sayfalar hazırlarım.",
  intro3:"Her özel baskı tek tek hazırlanır. Günlüklerin yanında şunları da hazırlıyorum:",
@@ -173,10 +192,19 @@ function chipGroup(keys,labels,key,col){
 }
 function qHead(page,q,h){page.appendChild(el("h2","q",q));if(h)page.appendChild(el("p","hint",h));}
 function errP(txt){var p=el("p","err",txt);p.setAttribute("role","alert");if(err)p.classList.add("on");return p;}
+function pzPath(w){
+  var x0=4,x1=w-24,y0=4,y1=50,rc=8,cy=27;
+  return "M"+(x0+rc)+" "+y0+"H"+(x1-rc)+"Q"+x1+" "+y0+" "+x1+" "+(y0+rc)+"V"+(cy-6)+
+  "C"+(x1+3)+" "+(cy-6)+" "+(x1+5)+" "+(cy-16)+" "+(x1+13)+" "+(cy-16)+"C"+(x1+21)+" "+(cy-16)+" "+(x1+21)+" "+(cy+16)+" "+(x1+13)+" "+(cy+16)+
+  "C"+(x1+5)+" "+(cy+16)+" "+(x1+3)+" "+(cy+6)+" "+x1+" "+(cy+6)+"V"+(y1-rc)+"Q"+x1+" "+y1+" "+(x1-rc)+" "+y1+"H"+(x0+rc)+"Q"+x0+" "+y1+" "+x0+" "+(y1-rc)+"V"+(y0+rc)+"Q"+x0+" "+y0+" "+(x0+rc)+" "+y0+"Z";}
+function pzBtn(text,dir,ghost,w){
+  var b=el("button","btn pz "+(dir==="l"?"l":"r")+(ghost?" ghost":""));b.type="button";b.style.width=w+"px";
+  var sv='<svg viewBox="0 0 '+w+' 54" aria-hidden="true"><path d="'+pzPath(w)+'" fill="'+(ghost?"#fff":"#111")+'" stroke="#111" stroke-width="1.6" stroke-linejoin="round"'+(dir==="l"?' transform="translate('+w+' 0) scale(-1 1)"':'')+'/></svg>';
+  b.innerHTML=sv;b.appendChild(el("span","lb",text));return b;}
 function navBtns(isLast){
   var d=D(),nav=el("div","nav");
-  var b=el("button","btn ghost",d.back);b.type="button";b.addEventListener("click",function(){go(-1);});
-  var n=el("button","btn",isLast?d.send:d.next);n.type="button";n.id="nextBtn";n.addEventListener("click",function(){go(1);});
+  var b=pzBtn(d.back,"l",true,128);b.addEventListener("click",function(){go(-1);});
+  var n=pzBtn(isLast?d.send:d.next,"r",false,isLast?190:128);n.id="nextBtn";n.addEventListener("click",function(){go(1);});
   nav.appendChild(b);nav.appendChild(n);return nav;
 }
 function textArea(key,ph){var t=el("textarea");t.value=A[key];t.placeholder=ph||"";t.id="in-"+key;t.addEventListener("input",function(){A[key]=t.value;});return t;}
@@ -184,14 +212,14 @@ function inp(key,type,label,auto){var f=el("div","field");var l=el("label","lbl"
   var i=el("input");i.type=type;i.id="in-"+key;i.value=A[key];if(auto)i.autocomplete=auto;i.addEventListener("input",function(){A[key]=i.value;});
   f.appendChild(l);f.appendChild(i);return f;}
 
-function brand(){
+function brand(noShop){
   var w=el("div","brand");
   var a=el("a","ig");a.href="https://instagram.com/lipyourzipart";a.target="_blank";a.rel="noopener";
   a.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg>';
   a.appendChild(el("span","","lipyourzipart"));w.appendChild(a);
   var b=el("a","ig");b.href="https://www.shopier.com/lipyourzipart";b.target="_blank";b.rel="noopener";
   b.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>';
-  b.appendChild(el("span","","Shopier"));w.appendChild(b);return w;
+  b.appendChild(el("span","","Shopier"));if(!noShop)w.appendChild(b);return w;
 }
 function render(){
   var d=D(),pg=el("section","pg");pg.id="pg";stage.innerHTML="";stage.appendChild(pg);
@@ -200,7 +228,7 @@ function render(){
     body.appendChild(el("div","pre","Pieces of"));body.appendChild(el("div","you","YOU"));body.appendChild(el("div","vol",d.vol));
     var g=document.getElementById("t-grid").content.cloneNode(true);body.appendChild(g);
     body.appendChild(el("p","tag",d.tag));body.appendChild(el("p","tag2",d.tag2));
-    pg.appendChild(body);var nav=el("div","nav solo");var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);pg.appendChild(nav);pg.appendChild(brand());
+    pg.appendChild(body);var nav=el("div","nav solo");var b=pzBtn(d.start,"r",false,150);b.addEventListener("click",function(){go(1);});nav.appendChild(b);pg.appendChild(nav);var rd=el("a","ready");rd.appendChild(el("span","rm",d.ready));rd.appendChild(el("span","rs",d.ready2));rd.href="https://www.shopier.com/lipyourzipart";rd.target="_blank";rd.rel="noopener";pg.appendChild(rd);pg.appendChild(brand(true));pg.classList.add("cover");
   }else if(cur==="about"){
     var s=el("div","stack");s.appendChild(el("p","lead",d.intro1));s.appendChild(el("p","",d.intro2));s.appendChild(el("p","note",d.intro3));
     var ul=el("ul","offer");WHAT.slice(1,-1).forEach(function(k){ul.appendChild(el("li","",d.what[k]));});s.appendChild(ul);
@@ -277,7 +305,7 @@ function summary(){
 }
 function submit(){
   var bc=document.getElementById("botcheck");if(bc&&bc.checked)return;
-  var btn=document.getElementById("nextBtn");btn.disabled=true;btn.textContent=D().sending;
+  var btn=document.getElementById("nextBtn");btn.disabled=true;var lb=btn.querySelector(".lb");if(lb)lb.textContent=D().sending;
   var payload={access_key:KEY,subject:"New custom request – "+T.en.what[A.what],from_name:"Pieces of YOU form",
     name:A.name.trim(),email:A.mail.trim(),message:summary(),botcheck:""};
   fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(payload)})
