@@ -31,7 +31,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 /* cover */
 .pre{font-size:26px;font-weight:700;line-height:1.1;text-align:center}
 .you{font-size:clamp(92px,26vw,132px);font-weight:700;line-height:1;letter-spacing:.02em;-webkit-text-stroke:2.4px var(--ink);margin-top:2px;text-align:center}
-.vol{font-size:12px;letter-spacing:.42em;color:var(--soft);font-weight:700;margin:6px 0 24px;padding-left:.42em;text-align:center}
+.vol{font-size:12px;letter-spacing:.42em;color:var(--ink);font-weight:700;margin:6px 0 24px;padding-left:.42em;text-align:center}
 .grid{display:block;width:210px;max-width:58%;margin:0 auto;color:var(--ink)}
 .tag{margin-top:24px;font-size:19px;font-weight:700;text-align:center}
 .tag2{margin-top:2px;color:var(--soft);text-align:center}
@@ -75,7 +75,7 @@ textarea{min-height:200px;resize:vertical;line-height:1.55;
 .pz[disabled]{opacity:.55;cursor:wait}
 .pz:active{transform:scale(.97)}
 .closed{text-align:center;font-weight:700;max-width:320px;line-height:1.4}
-.ready{display:block;width:max-content;margin:clamp(10px,2.4svh,18px) auto 0;padding:5px 16px;border:1.4px solid var(--ink);border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.04em;color:var(--ink);text-decoration:none}
+.ready{display:block;width:max-content;max-width:100%;text-align:center;margin:clamp(10px,2.4svh,18px) auto 0;padding:6px 16px;line-height:1.3;border:1.4px solid var(--ink);border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.04em;color:var(--ink);text-decoration:none}
 .cover .pre{font-size:clamp(20px,3.6svh,26px)}
 .cover .you{font-size:clamp(70px,min(26vw,15svh),132px)}
 .cover .vol{margin:4px 0 clamp(8px,2.4svh,24px)}
@@ -120,7 +120,7 @@ var WHAT=["journal","planner","coloring","calendar","bookmark","caricature","inv
 var OCC=["birthday","anniversary","valentine","mother","father","halloween","friendship","other"];
 var T={
 en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some stories deserve their own pages.",
- start:"Start",closed:"Custom requests are paused right now – I'm fully booked. Please check back soon!",ready:"Limited Edition →",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
+ start:"Start",closed:"Custom requests are paused right now – I'm fully booked. Please check back soon!",ready:"Explore Limited Pieces of YOU →",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
  intro1:"Pieces of YOU – Custom Edition is a personalized creative journal shaped around a person, a memory, a relationship, or a special occasion.",
  intro2:"Tell me a little about the person you're creating it for. I'll use your story as inspiration to create pages to write, draw, paint, color, and find the missing pieces.",
  intro3:"Each custom edition is created individually. Besides journals, I also create:",
@@ -142,7 +142,7 @@ en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some st
  occ:{birthday:"Birthday",anniversary:"Anniversary",valentine:"Valentine's Day",mother:"Mother's Day",father:"Father's Day",halloween:"Halloween",friendship:"Friendship",other:"Other / Just because"},
  sum:{title:"Pieces of YOU – Custom Request",what:"Request",who:"Who is it for",occ:"Occasion",more:"More about the occasion",idea:"Idea",person:"About this person",explore:"What the book should explore",lang:"Book language",date:"Needed by",name:"Name",mail:"Email",ig:"Instagram",none:"–"}},
 tr:{vol:"ÖZEL BASKI",tag:"Tek bir YOU için hazırlanmış bir kitap.",tag2:"Bazı hikâyeler kendi sayfalarını hak eder.",
- start:"Başla",closed:"Özel talepler şu an kapalı – yoğunluk var. Lütfen biraz sonra tekrar bak!",ready:"Limited Edition →",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
+ start:"Başla",closed:"Özel talepler şu an kapalı – yoğunluk var. Lütfen biraz sonra tekrar bak!",ready:"Sınırlı YOU Parçalarını Keşfet →",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
  intro1:"Pieces of YOU – Özel Baskı; bir kişi, bir anı, bir ilişki ya da özel bir gün etrafında şekillenen, kişiye özel bir yaratıcı günlüktür.",
  intro2:"Bu kitabı hazırladığın kişiyi biraz anlat. Hikâyenden ilham alarak, ona özel yazıp çizeceği, boyayacağı ve eksik parçalarını bulacağı sayfalar hazırlarım.",
  intro3:"Her özel baskı tek tek hazırlanır. Günlüklerin yanında şunları da hazırlıyorum:",
