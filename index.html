@@ -243,7 +243,7 @@ function render(){
   var body=el("div","body");
   if(cur==="cover"){
     body.appendChild(el("div","pre","Pieces of"));body.appendChild(el("div","you","YOU"));body.appendChild(el("div","vol",d.vol));
-    var g=document.getElementById("t-grid").content.cloneNode(true);body.appendChild(g);if(!window._gp){window._gp=1;var gg=body.querySelector(".grid");if(gg)gg.classList.add("pop");}
+    var g=document.getElementById("t-grid").content.cloneNode(true);body.appendChild(g);var gg=body.querySelector(".grid");if(gg)gg.classList.add("pop");
     body.appendChild(el("p","tag",d.tag));body.appendChild(el("p","tag2",d.tag2));var rd=el("a","ready",d.ready);rd.href="https://www.shopier.com/lipyourzipart";rd.target="_blank";rd.rel="noopener";body.appendChild(rd);
     pg.appendChild(body);var nav=el("div","nav solo");if(OPEN){var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);}else{nav.appendChild(el("p","closed",d.closed));}pg.appendChild(nav);pg.appendChild(brand());pg.classList.add("cover");
   }else if(cur==="about"){
