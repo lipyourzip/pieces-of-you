@@ -115,7 +115,7 @@ textarea{min-height:clamp(110px,24svh,200px);resize:vertical;line-height:1.55;
 .brand{display:flex;gap:28px;justify-content:center;margin-top:22px}
 .chan{display:table;margin:16px auto 10px;background:#111;color:#fff;font-weight:700;font-size:16px;text-decoration:none;padding:11px 24px;border-radius:999px}
 .ig{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ink);text-decoration:none;font-size:15px}
-.end .big{font-size:clamp(18px,3.4svh,24px);font-weight:700;text-wrap:balance;text-align:center;margin-top:clamp(8px,2svh,26px)}
+.end .big{font-size:clamp(22px,4svh,30px);font-weight:700;-webkit-text-stroke:1.1px var(--ink);text-wrap:balance;text-align:center;margin-top:clamp(8px,2svh,26px)}
 .end .by{margin-top:10px;color:var(--soft);font-size:15px;text-align:center}
 .end .x{margin-top:2px;font-size:15px;text-align:center}
 @media (prefers-reduced-motion:no-preference){.pg{animation:in .25s ease-out}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}.btn:active,.chip:active{transform:scale(.97)}}
@@ -157,7 +157,7 @@ en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds 
  qYou:"A little about YOU",lName:"Your name",lMail:"Your email",lIg:"Your Instagram username (optional)",lQuote:"Digital + printed copy (send me a quote)",lPhotos:"Photos for inspiration (optional)",hPhotos:"Paste a link to a folder (Google Drive, WeTransfer…). You can also send photos by Instagram DM after submitting.",
  eChoose:"Please choose one.",eText:"Please write a few words.",eMail:"Please enter a valid email.",eName:"Please write your name.",
  eSend:"Something went wrong. Please try again, or send me a message on Instagram @lipyourzipart.",
- thank:"Thank YOU –",thP:"Your request has reached me. I'll get back to you as soon as possible.",chan:"Get notified about new pieces →",
+ thank:"Thank YOU –",thP:"Your request has reached me. I'll get back to you as soon as possible.",chan:"Join to collect new pieces",
  end:"Your story. Your pages. Your pieces.",by:"By LipYourZip Art.",
  what:{journal:"A custom Pieces of YOU journal",planner:"A custom notebook or planner",coloring:"A black-and-white coloring book",calendar:"A custom calendar",bookmark:"A custom bookmark",caricature:"A caricature or illustration",invitation:"An invitation (wedding, birthday, event)",poster:"A poster or print design",product:"A custom design (t-shirt, tote bag, mug…)",other:"Something else"},
  who:{myself:"For myself",someone:"For someone else"},
@@ -179,7 +179,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Seni bulan parçaları topla
  qYou:"Biraz senden bahset",lName:"Adın",lMail:"E-posta adresin",lIg:"Instagram kullanıcı adın (isteğe bağlı)",lQuote:"Dijital + basılı kopya (teklif gönder)",lPhotos:"İlham için fotoğraflar (isteğe bağlı)",hPhotos:"Bir klasör linki yapıştır (Google Drive, WeTransfer…). Gönderdikten sonra fotoğrafları Instagram DM ile de yollayabilirsin.",
  eChoose:"Lütfen birini seç.",eText:"Lütfen birkaç kelime yaz.",eMail:"Lütfen geçerli bir e-posta yaz.",eName:"Lütfen adını yaz.",
  eSend:"Bir sorun oldu. Lütfen tekrar dene ya da Instagram'dan @lipyourzipart'a mesaj at.",
- thank:"Teşekkürler –",thP:"Talebin bana ulaştı. Sana en kısa sürede döneceğim.",chan:"Yeni parçalardan haberdar ol →",
+ thank:"Teşekkürler –",thP:"Talebin bana ulaştı. Sana en kısa sürede döneceğim.",chan:"Yeni parçaları toplamak için katıl",
  end:"Hikâyen. Sayfaların. Parçaların.",by:"LipYourZip Art'tan.",
  what:{journal:"Kişiye özel Pieces of YOU günlüğü",planner:"Kişiye özel defter ya da planlayıcı",coloring:"Siyah-beyaz boyama kitabı",calendar:"Kişiye özel takvim",bookmark:"Kişiye özel kitap ayracı",caricature:"Karikatür ya da illüstrasyon",invitation:"Davetiye (düğün, doğum günü, etkinlik)",poster:"Afiş ya da baskı tasarımı",product:"Kişiye özel tasarım (t-shirt, bez çanta, kupa…)",other:"Başka bir şey"},
  who:{myself:"Kendim için",someone:"Başka biri için"},
@@ -289,7 +289,7 @@ function render(){
     body.appendChild(el("div","pre","Pieces of"));body.appendChild(el("div","you","YOU"));body.appendChild(el("div","vol",d.vol));
     body.appendChild(document.getElementById("t-grid").content.cloneNode(true));
     var e=el("div","end");
-    e.appendChild(el("p","big",d.thank));e.appendChild(el("p","tag2",d.thP));e.appendChild(el("p","x","– XXX"));
+    e.appendChild(el("p","big",d.thank));var tp=el("p","tag2");d.thP.split(/(?<=[.!?])\s+/).forEach(function(t,i){if(i)tp.appendChild(document.createElement("br"));tp.appendChild(document.createTextNode(t));});e.appendChild(tp);e.appendChild(el("p","x","– XXX"));
     var ch=el("a","chan",d.chan);ch.href="https://www.instagram.com/channel/CnufndNoZyj_F01C/";ch.target="_blank";ch.rel="noopener";e.appendChild(ch);
     e.appendChild(brand());
     body.appendChild(e);pg.appendChild(body);pg.classList.add("cover");
