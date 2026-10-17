@@ -1,7 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Pieces of YOU Custom Edition</title>
+<title>Pieces of YOU</title>
+<meta name="description" content="A prompt journal to find the missing pieces. Or have one made for YOU.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pieces of YOU">
+<meta property="og:title" content="Pieces of YOU">
+<meta property="og:description" content="A prompt journal to find the missing pieces. Or have one made for YOU.">
+<meta property="og:url" content="https://lipyourzipart.com/">
+<meta property="og:image" content="https://lipyourzipart.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lipyourzipart.com/og.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -126,11 +135,11 @@ var KEY="eeb58ba4-4e6a-449b-b6c1-ed918c5f6670";
 var WHAT=["journal","planner","coloring","calendar","bookmark","caricature","invitation","poster","other"];
 var OCC=["birthday","anniversary","valentine","mother","father","halloween","friendship","other"];
 var T={
-en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some stories deserve their own pages.",
+en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Some stories deserve their own pages.",
  start:"Start",closed:"Custom requests are paused right now – I'm fully booked. Please check back soon!",ready:"Explore Limited Pieces of YOU →",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
- introT:"Pieces of YOU – Custom Digital Edition",intro1:"A personalized creative journal shaped around a person, a memory, a relationship, or a special occasion.",
- intro2:"Tell me a little about the person you're creating it for. I'll use your story as inspiration to create pages to write, draw, paint, color, and find the missing pieces.",
- intro3:"Each custom edition is created individually. Besides journals, I also create:",offerMore:"Or whatever you have in mind…",
+ introT:"Custom journals, drawings & designs.",intro1:"Made for one person, one memory, one story or one special occasion.",
+ intro2:"Tell me a little about who it's for. Your story becomes the inspiration.",
+ intro3:"Every piece is created individually. I can make:",offerMore:"Or whatever you have in mind…",
  howT:"How it works",s1:"Send a custom request.",s2:"Tell me about the person and everything on your mind and in your heart.",
  s3:"Receive your edition details: the package, a set price, and your delivery date (within 10 days).",s4:"Your Pieces of YOU edition is created after confirmation.",
  avail:"All editions are digital and print-ready, available worldwide. Want a printed copy? Tick the box on the date page and I'll send you a quote.",
@@ -148,11 +157,11 @@ en:{vol:"CUSTOM EDITION",tag:"A book made for one particular YOU.",tag2:"Some st
  who:{myself:"For myself",someone:"For someone else"},
  occ:{birthday:"Birthday",anniversary:"Anniversary",valentine:"Valentine's Day",mother:"Mother's Day",father:"Father's Day",halloween:"Halloween",friendship:"Friendship",other:"Other / Just because"},
  sum:{ask:"Questions",quote:"Printed copy: YES – please send a quote",photos:"Photo link",title:"Pieces of YOU – Custom Request",what:"Request",who:"Who is it for",occ:"Occasion",more:"More about the occasion",idea:"Idea",person:"About this person",explore:"What the book should explore",lang:"Book language",date:"Needed by",name:"Name",mail:"Email",ig:"Instagram",none:"–"}},
-tr:{vol:"ÖZEL BASKI",tag:"Bir tek SEN için hazırlanmış bir kitap.",tag2:"Bazı hikâyeler kendi sayfalarını hak eder.",
+tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Bazı hikâyeler kendi sayfalarını hak eder.",
  start:"Başla",closed:"Özel talepler şu an kapalı – yoğunluk var. Lütfen biraz sonra tekrar bak!",ready:"Sınırlı YOU Parçalarını Keşfet →",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
- introT:"Pieces of YOU – Kişiye Özel Dijital Baskı",intro1:"Bir kişi, bir anı, bir ilişki ya da özel bir gün etrafında şekillenen, kişiye özel bir yaratıcı günlük.",
- intro2:"Bu kitabı hazırladığın kişiyi biraz anlat. Hikâyenden ilham alarak, ona özel yazıp çizebileceği, boyayabileceği ve eksik parçalarını bulabileceği sayfalar hazırlayabilirim.",
- intro3:"Her özel baskı kişiye özel hazırlanır. Günlüklerin yanında şunları da tasarlayabilirim:",offerMore:"Ya da aklından ne geçiyorsa…",
+ introT:"Kişiye özel günlük, çizim ve tasarımlar.",intro1:"Tek bir kişi, bir anı, bir hikâye ya da özel bir gün için hazırlanır.",
+ intro2:"Kimin için hazırlandığını biraz anlat. Hikâyen bana ilham olur.",
+ intro3:"Her parça tek tek, kişiye özel hazırlanır. Şunları yapabilirim:",offerMore:"Ya da aklından ne geçiyorsa…",
  howT:"Nasıl işliyor",s1:"Özel bir talep gönder.",s2:"Bana kişiyi ve kafandan, aklından, kalbinden geçenleri anlat.",
  s3:"Baskının detayları sana ulaşır: paket, sabit fiyat ve teslim tarihi (en geç 10 gün içinde).",s4:"Onayından sonra Pieces of YOU baskın hazırlanır.",
  avail:"Tüm baskılar dijitaldir ve baskıya hazırdır, dünyanın her yerinden alınabilir. Basılı kopya istersen tarih sayfasındaki kutuyu işaretle, sana teklif göndereyim.",
@@ -177,7 +186,7 @@ var A={selfMore:"",ask:"",whoMore:"",quote:"",photos:"",what:"",who:"",occ:"",mo
 var cur="cover",err="",OPEN=true;
 var stage=document.getElementById("stage"),pn=document.getElementById("pn");
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
-function steps(){var s=["cover","about","about2","how","what","who","occ","idea"];
+function steps(){var s=["cover","about","how","what","who","occ","idea"];
   if(A.what==="journal")s.push("person","explore","blang");
   s.push("date","ask","you","done");return s;}
 function D(){return T[lang];}
@@ -236,6 +245,7 @@ function render(){
     pg.appendChild(body);var nav=el("div","nav solo");if(OPEN){var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);}else{nav.appendChild(el("p","closed",d.closed));}pg.appendChild(nav);pg.appendChild(brand());pg.classList.add("cover");
   }else if(cur==="about"){
     var s=el("div","stack about");s.appendChild(el("p","lead ttl",d.introT));s.appendChild(el("p","",d.intro1));var parts=d.intro2.split(/(?<=[.!?])\s+/);parts.forEach(function(t){s.appendChild(el("p","",t));});
+    s.appendChild(el("p","note",d.intro3));var ul0=el("ul","offer");WHAT.slice(0,-1).forEach(function(k){ul0.appendChild(el("li","",d.what[k]));});ul0.appendChild(el("li","",d.offerMore));s.appendChild(ul0);
     body.appendChild(s);pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="about2"){
     var s=el("div","stack");s.appendChild(el("p","note",d.intro3));
