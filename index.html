@@ -110,7 +110,7 @@ textarea{min-height:clamp(110px,24svh,200px);resize:vertical;line-height:1.55;
 .btn[disabled]{opacity:.55;cursor:wait}
 .pn{text-align:center;color:#999;font-size:.82em;margin-top:.5em;min-height:1.2em;line-height:1.2}
 .brand{display:flex;gap:28px;justify-content:center;margin-top:22px}
-.chan{display:table;margin:14px auto 8px;color:var(--ink);font-weight:700;font-size:17px;text-decoration:underline;text-underline-offset:4px}
+.chan{display:table;margin:16px auto 10px;background:#111;color:#fff;font-weight:700;font-size:16px;text-decoration:none;padding:11px 24px;border-radius:999px}
 .ig{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ink);text-decoration:none;font-size:15px}
 .end .big{font-size:clamp(18px,3.4svh,24px);font-weight:700;text-wrap:balance;text-align:center;margin-top:clamp(8px,2svh,26px)}
 .end .by{margin-top:10px;color:var(--soft);font-size:15px;text-align:center}
@@ -146,7 +146,7 @@ en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds 
  howT:"How it works",s1:"Send a custom request.",s2:"Tell me about YOU, or the person it's for. Write what's on your mind and in your heart.",
  s3:"Receive your edition details: the package, a set price, and your delivery date (within 10 days).",s4:"Your Pieces of YOU edition is created after confirmation.",s5:"All editions are digital and print-ready, available worldwide.",printT:"Printed copy (optional)",printH:"Want a printed copy? Tick the box and I'll send you a quote.",
  avail:"Want a printed copy? You can ask for a quote on the date page.",
- qWhat:"What would you like me to create?",qWho:"Who is it for?",qWhoMore:"Please specify (my partner, my son, my daughter, my friend, my mom, my dad…)",qSelfMore:"Treating myself, just because, I'll leave it to you… (optional)",qOcc:"What's the occasion?",qMore:"Tell me more (optional)",qAsk:"Any questions for me?",hAsk:"Optional. Ask me anything before you send your request: price, timing, ideas…",
+ qWhat:"What would you like me to create?",qWho:"Who is it for?",qWhoMore:"Please specify (my partner, my son, my daughter, my friend, my mom, my dad…)",qSelfMore:"Treating myself, just because, I'll leave it to you… (optional)",qOcc:"What's this piece for?",hOcc:"Optional.",qMore:"Tell me more (optional)",qAsk:"Any questions for me?",hAsk:"Optional. Ask me anything before you send your request: price, timing, ideas…",
  qIdea:"Tell me about your idea",hIdea:"What do you have in mind? Style, size, colors, references, anything that helps.",
  qPerson:"Tell me a little about this person.",hPerson:"Who are they to YOU? What do they love? What makes them laugh?",
  qExplore:"What would you like this book to explore?",hExplore:"A memory, a feeling, a joke only the two of you get, a dream… (optional)",
@@ -168,7 +168,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Seni bulan parçaları topla
  howT:"Nasıl işliyor",s1:"Özel bir talep gönder.",s2:"Bana SEN'i ya da O kişiyi anlat; aklından, kalbinden geçenleri yaz.",
  s3:"Baskının detayları sana ulaşır: paket, sabit fiyat ve teslim tarihi (en geç 10 gün içinde).",s4:"Onayından sonra Pieces of YOU baskın hazırlanır.",s5:"Tüm baskılar dijitaldir ve baskıya hazırdır, dünyanın her yerinden alınabilir.",printT:"Basılı kopya (isteğe bağlı)",printH:"Basılı kopya mı istiyorsun? Kutuyu işaretle, sana teklif göndereyim.",
  avail:"Basılı kopya mı istiyorsun? Tarih sayfasında teklif isteyebilirsin.",
- qWhat:"Ne hazırlamamı istersin?",qWho:"Kimin için?",qWhoMore:"Lütfen belirt (sevgilim, oğlum, kızım, arkadaşım, annem, babam…)",qSelfMore:"Kendimi şımartmak istiyorum, içimden geldi, sana bırakıyorum… (isteğe bağlı)",qOcc:"Bu kitap ne için?",qMore:"Biraz daha anlat (isteğe bağlı)",qAsk:"Bana sormak istediğin bir şey var mı?",hAsk:"İsteğe bağlı. Talebini göndermeden önce merak ettiklerini sorabilirsin: fiyat, süre, fikirler…",
+ qWhat:"Ne hazırlamamı istersin?",qWho:"Kimin için?",qWhoMore:"Lütfen belirt (sevgilim, oğlum, kızım, arkadaşım, annem, babam…)",qSelfMore:"Kendimi şımartmak istiyorum, içimden geldi, sana bırakıyorum… (isteğe bağlı)",qOcc:"Bu parça ne için?",hOcc:"İsteğe bağlı.",qMore:"Biraz daha anlat (isteğe bağlı)",qAsk:"Bana sormak istediğin bir şey var mı?",hAsk:"İsteğe bağlı. Talebini göndermeden önce merak ettiklerini sorabilirsin: fiyat, süre, fikirler…",
  qIdea:"Fikrini anlat",hIdea:"Aklında ne var? Stil, boyut, renkler, referanslar, işime yarayacak her şey.",
  qPerson:"Bu kişiyi biraz anlat.",hPerson:"Senin için kim? Neleri sever? Neye güler?",
  qExplore:"Bu kitap neleri keşfetsin istersin?",hExplore:"Bir anı, bir his, sadece ikinizin anladığı bir espri, bir hayal… (isteğe bağlı)",
@@ -198,9 +198,9 @@ function chipGroup(keys,labels,key,col){
   var box=el("div","chips"+(col?" col":""));
   keys.forEach(function(k){
     var b=el("button","chip",labels[k]||k);b.type="button";b.setAttribute("aria-pressed",A[key]===k?"true":"false");
-    b.addEventListener("click",function(){A[key]=k;err="";
+    b.addEventListener("click",function(){var off=(key==="occ"&&A[key]===k);A[key]=off?"":k;err="";
       Array.prototype.forEach.call(box.children,function(c){c.setAttribute("aria-pressed","false");});
-      b.setAttribute("aria-pressed","true");
+      b.setAttribute("aria-pressed",off?"false":"true");
       var er=stage.querySelector(".err");if(er)er.classList.remove("on");
       Array.prototype.forEach.call(stage.querySelectorAll("[data-more]"),function(m){var kv=m.getAttribute("data-more").split(":");m.hidden=kv[1]==="*"?!A[kv[0]]:A[kv[0]]!==kv[1];});
       if(key==="what"){renderNumber();}
@@ -263,9 +263,9 @@ function render(){
   }else if(cur==="who"){
     qHead(body,d.qWho);body.appendChild(chipGroup(["myself","someone"],d.who,"who",false));var wm=inp("whoMore","text",d.qWhoMore);wm.setAttribute("data-more","who:someone");wm.hidden=A.who!=="someone";body.appendChild(wm);var sm=inp("selfMore","text",d.qSelfMore);sm.setAttribute("data-more","who:myself");sm.hidden=A.who!=="myself";body.appendChild(sm);body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="occ"){
-    qHead(body,d.qOcc);body.appendChild(chipGroup(OCC,d.occ,"occ",false));
+    qHead(body,d.qOcc,d.hOcc);body.appendChild(chipGroup(OCC,d.occ,"occ",false));
     var m=inp("more","text",d.qMore);m.setAttribute("data-more","occ:*");m.hidden=!A.occ;body.appendChild(m);
-    body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
+    pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="idea"){
     qHead(body,d.qIdea,d.hIdea);body.appendChild(textArea("idea"));body.appendChild(inp("photos","text",d.lPhotos));body.appendChild(el("p","hint",d.hPhotos));body.appendChild(errP(d.eText));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="person"){
@@ -301,7 +301,6 @@ function validate(){
   err="";
   if(cur==="what"&&!A.what)return bad(d.eChoose);
   if(cur==="who"&&!A.who)return bad(d.eChoose);
-  if(cur==="occ"&&!A.occ)return bad(d.eChoose);
   if(cur==="idea"&&!A.idea.trim())return bad(d.eText);
   if(cur==="person"&&!A.person.trim())return bad(d.eText);
   if(cur==="you"){
@@ -320,7 +319,7 @@ function go(dir){if(!OPEN&&cur==='cover')return;
 }
 function summary(){
   var d=D(),s=d.sum,v=function(x){x=(x||"").trim();return x?x:s.none;};
-  var L=[s.title,"",s.what+": "+d.what[A.what],s.who+": "+d.who[A.who]+((A.who==="someone"&&(A.whoMore||"").trim())?" – "+A.whoMore.trim():(A.who==="myself"&&(A.selfMore||"").trim())?" – "+A.selfMore.trim():""),s.occ+": "+d.occ[A.occ]];
+  var L=[s.title,"",s.what+": "+d.what[A.what],s.who+": "+d.who[A.who]+((A.who==="someone"&&(A.whoMore||"").trim())?" – "+A.whoMore.trim():(A.who==="myself"&&(A.selfMore||"").trim())?" – "+A.selfMore.trim():""),s.occ+": "+v(A.occ?d.occ[A.occ]:"")];
   if((A.more||"").trim())L.push(s.more+": "+A.more.trim());
   L.push("",s.idea+":",v(A.idea));if((A.photos||"").trim())L.push("",s.photos+": "+A.photos.trim());
   if(A.what==="journal")L.push("",s.person+":",v(A.person),"",s.explore+":",v(A.explore),"",s.lang+": "+A.blang);
