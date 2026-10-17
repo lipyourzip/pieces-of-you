@@ -108,6 +108,7 @@ textarea{min-height:clamp(110px,24svh,200px);resize:vertical;line-height:1.55;
 .btn[disabled]{opacity:.55;cursor:wait}
 .pn{text-align:center;color:#999;font-size:.82em;margin-top:.5em;min-height:1.2em;line-height:1.2}
 .brand{display:flex;gap:28px;justify-content:center;margin-top:22px}
+.chan{display:table;margin:14px auto 8px;color:var(--ink);font-weight:700;font-size:17px;text-decoration:underline;text-underline-offset:4px}
 .ig{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ink);text-decoration:none;font-size:15px}
 .end .big{font-size:clamp(18px,3.4svh,24px);font-weight:700;text-wrap:balance;text-align:center;margin-top:clamp(8px,2svh,26px)}
 .end .by{margin-top:10px;color:var(--soft);font-size:15px;text-align:center}
@@ -135,11 +136,11 @@ var KEY="eeb58ba4-4e6a-449b-b6c1-ed918c5f6670";
 var WHAT=["journal","planner","coloring","calendar","bookmark","caricature","invitation","poster","other"];
 var OCC=["birthday","anniversary","valentine","mother","father","halloween","friendship","other"];
 var T={
-en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Some stories deserve their own pages.",
+en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds you.",
  start:"Start",closed:"Custom requests are paused right now – I'm fully booked. Please check back soon!",ready:"Explore YOU Pieces →",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
  introT:"Custom journals, drawings & designs.",intro1:"Made for one person, one memory, one story or one special occasion.",
  intro2:"Tell me about YOU, or the person it's for. Write what's on your mind and in your heart. Your story becomes the inspiration.",
- intro3:"Every piece is created individually. I can make:",offerMore:"Or whatever you have in mind…",
+ intro3:"Every piece is created individually, just for YOU.",offerMore:"Or whatever you have in mind…",
  howT:"How it works",s1:"Send a custom request.",s2:"Tell me about YOU, or the person it's for. Write what's on your mind and in your heart.",
  s3:"Receive your edition details: the package, a set price, and your delivery date (within 10 days).",s4:"Your Pieces of YOU edition is created after confirmation.",
  avail:"All editions are digital and print-ready, available worldwide. Want a printed copy? Tick the box on the date page and I'll send you a quote.",
@@ -151,17 +152,17 @@ en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Some stories deserv
  qYou:"A little about YOU",lName:"Your name",lMail:"Your email",lIg:"Your Instagram username (optional)",lQuote:"I'd also like a printed copy – send me a quote",lPhotos:"Photos for inspiration (optional)",hPhotos:"Paste a link to a folder (Google Drive, WeTransfer…). You can also send photos by Instagram DM after submitting.",
  eChoose:"Please choose one.",eText:"Please write a few words.",eMail:"Please enter a valid email.",eName:"Please write your name.",
  eSend:"Something went wrong. Please try again, or send me a message on Instagram @lipyourzipart.",
- thank:"Thank YOU –",thP:"Your request has reached me. I'll get back to you as soon as possible.",
+ thank:"Thank YOU –",thP:"Your request has reached me. I'll get back to you as soon as possible.",chan:"Get notified about new pieces →",
  end:"Your story. Your pages. Your pieces.",by:"By LipYourZip Art.",
  what:{journal:"A custom Pieces of YOU journal",planner:"A custom notebook or planner",coloring:"A black-and-white coloring book",calendar:"A custom calendar",bookmark:"A custom bookmark",caricature:"A caricature or illustration",invitation:"An invitation (wedding, birthday, event)",poster:"A poster or print design",other:"Something else"},
  who:{myself:"For myself",someone:"For someone else"},
  occ:{birthday:"Birthday",anniversary:"Anniversary",valentine:"Valentine's Day",mother:"Mother's Day",father:"Father's Day",halloween:"Halloween",friendship:"Friendship",other:"Other / Just because"},
  sum:{ask:"Questions",quote:"Printed copy: YES – please send a quote",photos:"Photo link",title:"Pieces of YOU – Custom Request",what:"Request",who:"Who is it for",occ:"Occasion",more:"More about the occasion",idea:"Idea",person:"About this person",explore:"What the book should explore",lang:"Book language",date:"Needed by",name:"Name",mail:"Email",ig:"Instagram",none:"–"}},
-tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Bazı hikâyeler kendi sayfalarını hak eder.",
+tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Seni bulan parçaları topla.",
  start:"Başla",closed:"Özel talepler şu an kapalı – yoğunluk var. Lütfen biraz sonra tekrar bak!",ready:"YOU Parçalarını Keşfet →",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
  introT:"Kişiye özel günlük, çizim ve tasarımlar.",intro1:"Tek bir kişi, bir anı, bir hikâye ya da özel bir gün için hazırlanır.",
  intro2:"Bana SEN'i ya da O kişiyi anlat; aklından, kalbinden geçenleri yaz. Hikâyen bana ilham olur.",
- intro3:"Her parça tek tek, kişiye özel hazırlanır. Şunları yapabilirim:",offerMore:"Ya da aklından ne geçiyorsa…",
+ intro3:"Her parça tek tek, sadece SEN için hazırlanır.",offerMore:"Ya da aklından ne geçiyorsa…",
  howT:"Nasıl işliyor",s1:"Özel bir talep gönder.",s2:"Bana SEN'i ya da O kişiyi anlat; aklından, kalbinden geçenleri yaz.",
  s3:"Baskının detayları sana ulaşır: paket, sabit fiyat ve teslim tarihi (en geç 10 gün içinde).",s4:"Onayından sonra Pieces of YOU baskın hazırlanır.",
  avail:"Tüm baskılar dijitaldir ve baskıya hazırdır, dünyanın her yerinden alınabilir. Basılı kopya istersen tarih sayfasındaki kutuyu işaretle, sana teklif göndereyim.",
@@ -173,7 +174,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Bazı hikâyeler kendi sayfa
  qYou:"Biraz senden bahset",lName:"Adın",lMail:"E-posta adresin",lIg:"Instagram kullanıcı adın (isteğe bağlı)",lQuote:"Basılı kopya da istiyorum – bana teklif gönder",lPhotos:"İlham için fotoğraflar (isteğe bağlı)",hPhotos:"Bir klasör linki yapıştır (Google Drive, WeTransfer…). Gönderdikten sonra fotoğrafları Instagram DM ile de yollayabilirsin.",
  eChoose:"Lütfen birini seç.",eText:"Lütfen birkaç kelime yaz.",eMail:"Lütfen geçerli bir e-posta yaz.",eName:"Lütfen adını yaz.",
  eSend:"Bir sorun oldu. Lütfen tekrar dene ya da Instagram'dan @lipyourzipart'a mesaj at.",
- thank:"Teşekkürler –",thP:"Talebin bana ulaştı. Sana en kısa sürede döneceğim.",
+ thank:"Teşekkürler –",thP:"Talebin bana ulaştı. Sana en kısa sürede döneceğim.",chan:"Yeni parçalardan haberdar ol →",
  end:"Hikâyen. Sayfaların. Parçaların.",by:"LipYourZip Art'tan.",
  what:{journal:"Kişiye özel Pieces of YOU günlüğü",planner:"Kişiye özel defter ya da planlayıcı",coloring:"Siyah-beyaz boyama kitabı",calendar:"Kişiye özel takvim",bookmark:"Kişiye özel kitap ayracı",caricature:"Karikatür ya da illüstrasyon",invitation:"Davetiye (düğün, doğum günü, etkinlik)",poster:"Afiş ya da baskı tasarımı",other:"Başka bir şey"},
  who:{myself:"Kendim için",someone:"Başka biri için"},
@@ -245,7 +246,7 @@ function render(){
     pg.appendChild(body);var nav=el("div","nav solo");if(OPEN){var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);}else{nav.appendChild(el("p","closed",d.closed));}pg.appendChild(nav);pg.appendChild(brand());pg.classList.add("cover");
   }else if(cur==="about"){
     var s=el("div","stack about");s.appendChild(el("p","lead ttl",d.introT));s.appendChild(el("p","",d.intro1));var parts=d.intro2.split(/(?<=[.!?])\s+/);parts.forEach(function(t){s.appendChild(el("p","",t));});
-    s.appendChild(el("p","note",d.intro3));var ul0=el("ul","offer");WHAT.slice(0,-1).forEach(function(k){ul0.appendChild(el("li","",d.what[k]));});ul0.appendChild(el("li","",d.offerMore));s.appendChild(ul0);
+    s.appendChild(el("p","note",d.intro3));
     body.appendChild(s);pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="about2"){
     var s=el("div","stack");s.appendChild(el("p","note",d.intro3));
@@ -284,6 +285,7 @@ function render(){
     body.appendChild(document.getElementById("t-grid").content.cloneNode(true));
     var e=el("div","end");
     e.appendChild(el("p","big",d.thank));e.appendChild(el("p","tag2",d.thP));e.appendChild(el("p","x","– XXX"));
+    var ch=el("a","chan",d.chan);ch.href="https://www.instagram.com/channel/CnufndNoZyj_F01C/";ch.target="_blank";ch.rel="noopener";e.appendChild(ch);
     e.appendChild(brand());
     body.appendChild(e);pg.appendChild(body);pg.classList.add("cover");
   }
