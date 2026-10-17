@@ -118,6 +118,7 @@ textarea{min-height:clamp(110px,24svh,200px);resize:vertical;line-height:1.55;
 .end .big{font-size:clamp(22px,4svh,30px);font-weight:700;-webkit-text-stroke:1.1px var(--ink);text-wrap:balance;text-align:center;margin-top:clamp(8px,2svh,26px)}
 .end .by{margin-top:10px;color:var(--soft);font-size:15px;text-align:center}
 .end .x{margin-top:2px;font-size:15px;text-align:center}
+.end .mail{display:flex;align-items:center;justify-content:center;gap:7px;margin-top:8px;color:var(--ink);text-decoration:none;font-size:15px}
 @media (prefers-reduced-motion:no-preference){.pg{animation:in .25s ease-out}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}.btn:active,.chip:active{transform:scale(.97)}}
 </style>
 </head>
@@ -289,7 +290,7 @@ function render(){
     body.appendChild(el("div","pre","Pieces of"));body.appendChild(el("div","you","YOU"));body.appendChild(el("div","vol",d.vol));
     body.appendChild(document.getElementById("t-grid").content.cloneNode(true));
     var e=el("div","end");
-    e.appendChild(el("p","big",d.thank));var tp=el("p","tag2");d.thP.split(/(?<=[.!?])\s+/).forEach(function(t,i){if(i)tp.appendChild(document.createElement("br"));tp.appendChild(document.createTextNode(t));});e.appendChild(tp);e.appendChild(el("p","x","– XXX"));
+    e.appendChild(el("p","big",d.thank));var tp=el("p","tag2");d.thP.split(/(?<=[.!?])\s+/).forEach(function(t,i){if(i)tp.appendChild(document.createElement("br"));tp.appendChild(document.createTextNode(t));});e.appendChild(tp);e.appendChild(el("p","x","– XXX"));var ml=el("a","mail");ml.href="mailto:lipyourzipart@gmail.com";ml.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7.5l8 6 8-6"/></svg>';ml.appendChild(el("span","","lipyourzipart@gmail.com"));e.appendChild(ml);
     var ch=el("a","chan",d.chan);ch.href="https://www.instagram.com/channel/CnufndNoZyj_F01C/";ch.target="_blank";ch.rel="noopener";e.appendChild(ch);
     e.appendChild(brand());
     body.appendChild(e);pg.appendChild(body);pg.classList.add("cover");
