@@ -41,6 +41,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px soli
 .pre{font-size:26px;font-weight:700;line-height:1.1;text-align:center}
 .you{font-size:clamp(92px,26vw,132px);font-weight:700;line-height:1;letter-spacing:.02em;-webkit-text-stroke:2.4px var(--ink);margin-top:2px;text-align:center}
 .vol{font-size:12px;letter-spacing:.42em;color:var(--ink);font-weight:700;margin:6px 0 24px;padding-left:.42em;text-align:center}
+@media (prefers-reduced-motion:no-preference){.grid.pop path{transform-box:fill-box;transform-origin:center;opacity:0;animation:pp .5s cubic-bezier(.34,1.56,.64,1) forwards}.grid.pop path:nth-child(1){animation-delay:.15s}.grid.pop path:nth-child(2){animation-delay:.27s}.grid.pop path:nth-child(3){animation-delay:.39s}.grid.pop path:nth-child(4){animation-delay:.51s}.grid.pop path:nth-child(5){animation-delay:.63s}.grid.pop path:nth-child(6){animation-delay:.75s}.grid.pop path:nth-child(7){animation-delay:.87s}.grid.pop path:nth-child(8){animation-delay:.99s}.grid.pop path:nth-child(9){animation:pp9 .5s ease-out 1.2s forwards,br 3s ease-in-out 1.8s infinite}@keyframes pp{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:scale(1)}}@keyframes pp9{from{opacity:0}to{opacity:.5}}@keyframes br{0%,100%{opacity:.5}50%{opacity:.22}}}
 .grid{display:block;width:210px;max-width:58%;margin:0 auto;color:var(--ink)}
 .tag{margin-top:24px;font-size:19px;font-weight:700;text-align:center}
 .tag2{margin-top:2px;color:var(--soft);text-align:center}
@@ -144,7 +145,7 @@ en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds 
  howT:"How it works",s1:"Send a custom request.",s2:"Tell me about YOU, or the person it's for. Write what's on your mind and in your heart.",
  s3:"Receive your edition details: the package, a set price, and your delivery date (within 10 days).",s4:"Your Pieces of YOU edition is created after confirmation.",
  avail:"All editions are digital and print-ready, available worldwide. Want a printed copy? Tick the box on the date page and I'll send you a quote.",
- qWhat:"What would you like me to create?",qWho:"Who is it for?",qWhoMore:"Please specify (my partner, my son, my daughter, my friend, my mom, my dad…)",qSelfMore:"Optional: treating myself, just because, I'll leave it to you…",qOcc:"What's the occasion?",qMore:"Tell me more (optional)",qAsk:"Any questions for me?",hAsk:"Optional. Ask me anything before you send your request: price, timing, ideas…",
+ qWhat:"What would you like me to create?",qWho:"Who is it for?",qWhoMore:"Please specify (my partner, my son, my daughter, my friend, my mom, my dad…)",qSelfMore:"Treating myself, just because, I'll leave it to you… (optional)",qOcc:"What's the occasion?",qMore:"Tell me more (optional)",qAsk:"Any questions for me?",hAsk:"Optional. Ask me anything before you send your request: price, timing, ideas…",
  qIdea:"Tell me about your idea",hIdea:"What do you have in mind? Style, size, colors, references, anything that helps.",
  qPerson:"Tell me a little about this person.",hPerson:"Who are they to YOU? What do they love? What makes them laugh?",
  qExplore:"What would you like this book to explore?",hExplore:"A memory, a feeling, a joke only the two of you get, a dream… (optional)",
@@ -166,7 +167,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Seni bulan parçaları topla
  howT:"Nasıl işliyor",s1:"Özel bir talep gönder.",s2:"Bana SEN'i ya da O kişiyi anlat; aklından, kalbinden geçenleri yaz.",
  s3:"Baskının detayları sana ulaşır: paket, sabit fiyat ve teslim tarihi (en geç 10 gün içinde).",s4:"Onayından sonra Pieces of YOU baskın hazırlanır.",
  avail:"Tüm baskılar dijitaldir ve baskıya hazırdır, dünyanın her yerinden alınabilir. Basılı kopya istersen tarih sayfasındaki kutuyu işaretle, sana teklif göndereyim.",
- qWhat:"Ne hazırlamamı istersin?",qWho:"Kimin için?",qWhoMore:"Lütfen belirt (sevgilim, oğlum, kızım, arkadaşım, annem, babam…)",qSelfMore:"İsteğe bağlı: kendimi şımartmak istiyorum, içimden geldi, sana bırakıyorum…",qOcc:"Bu kitap ne için?",qMore:"Biraz daha anlat (isteğe bağlı)",qAsk:"Bana sormak istediğin bir şey var mı?",hAsk:"İsteğe bağlı. Talebini göndermeden önce merak ettiklerini sorabilirsin: fiyat, süre, fikirler…",
+ qWhat:"Ne hazırlamamı istersin?",qWho:"Kimin için?",qWhoMore:"Lütfen belirt (sevgilim, oğlum, kızım, arkadaşım, annem, babam…)",qSelfMore:"Kendimi şımartmak istiyorum, içimden geldi, sana bırakıyorum… (isteğe bağlı)",qOcc:"Bu kitap ne için?",qMore:"Biraz daha anlat (isteğe bağlı)",qAsk:"Bana sormak istediğin bir şey var mı?",hAsk:"İsteğe bağlı. Talebini göndermeden önce merak ettiklerini sorabilirsin: fiyat, süre, fikirler…",
  qIdea:"Fikrini anlat",hIdea:"Aklında ne var? Stil, boyut, renkler, referanslar, işime yarayacak her şey.",
  qPerson:"Bu kişiyi biraz anlat.",hPerson:"Senin için kim? Neleri sever? Neye güler?",
  qExplore:"Bu kitap neleri keşfetsin istersin?",hExplore:"Bir anı, bir his, sadece ikinizin anladığı bir espri, bir hayal… (isteğe bağlı)",
@@ -241,7 +242,7 @@ function render(){
   var body=el("div","body");
   if(cur==="cover"){
     body.appendChild(el("div","pre","Pieces of"));body.appendChild(el("div","you","YOU"));body.appendChild(el("div","vol",d.vol));
-    var g=document.getElementById("t-grid").content.cloneNode(true);body.appendChild(g);
+    var g=document.getElementById("t-grid").content.cloneNode(true);body.appendChild(g);if(!window._gp){window._gp=1;var gg=body.querySelector(".grid");if(gg)gg.classList.add("pop");}
     body.appendChild(el("p","tag",d.tag));body.appendChild(el("p","tag2",d.tag2));var rd=el("a","ready",d.ready);rd.href="https://www.shopier.com/lipyourzipart";rd.target="_blank";rd.rel="noopener";body.appendChild(rd);
     pg.appendChild(body);var nav=el("div","nav solo");if(OPEN){var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);}else{nav.appendChild(el("p","closed",d.closed));}pg.appendChild(nav);pg.appendChild(brand());pg.classList.add("cover");
   }else if(cur==="about"){
