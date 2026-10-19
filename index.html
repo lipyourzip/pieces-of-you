@@ -142,7 +142,7 @@ textarea{min-height:clamp(110px,24svh,200px);resize:vertical;line-height:1.55;
 (function(){
 var KEY="eeb58ba4-4e6a-449b-b6c1-ed918c5f6670";
 var WHAT=["journal","caricature","tattoo","coloring","invitation","planner","calendar","bookmark","poster","product","other"];
-var OCC=["birthday","anniversary","wedding","work","baby","valentine","parents","thanks","halloween","other"];
+var OCC=["birthday","anniversary","wedding","engagement","valentine","mother","father","job","graduation","baby","thanks","halloween","other"];
 var T={
 en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds you.",
  start:"Start",closed:"Custom requests are paused right now – I'm fully booked. Please check back soon!",ready:"Explore new YOU Pieces",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
@@ -164,7 +164,7 @@ en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds 
  end:"Your story. Your pages. Your pieces.",by:"By LipYourZip Art.",
  what:{journal:"A custom Pieces of YOU journal",planner:"A custom notebook or planner",coloring:"A black-and-white coloring book",calendar:"A custom calendar",bookmark:"A custom bookmark",caricature:"A caricature or illustration",tattoo:"A custom tattoo design",invitation:"An invitation (wedding, birthday, event)",poster:"A poster or print design",product:"A custom product design",other:"Something else"},
  who:{myself:"For myself",someone:"For someone else",both:"For me and someone else"},
- occ:{birthday:"Birthday",anniversary:"Anniversary (wedding, engagement, friendship…)",wedding:"Wedding or engagement",work:"New job or graduation",baby:"New baby",valentine:"Valentine's Day",parents:"Mother's Day / Father's Day",thanks:"Thank you",halloween:"Halloween",other:"Just because / Other"},
+ occ:{birthday:"Birthday",anniversary:"Anniversary",wedding:"Wedding",engagement:"Engagement",valentine:"Valentine's Day",mother:"Mother's Day",father:"Father's Day",job:"New job",graduation:"Graduation",baby:"New baby",thanks:"Thank YOU",halloween:"Halloween",other:"Just because / Other"},
  sum:{ask:"Questions",quote:"Printed copy: YES – please send a quote",digital:"Printed copy: NO – digital only",photos:"Photo link",title:"Pieces of YOU – Custom Request",what:"Request",who:"Who is it for",occ:"Occasion",more:"More about the occasion",idea:"Idea",person:"About this person",explore:"What the book should explore",lang:"Book language",date:"Needed by",name:"Name",mail:"Email",ig:"Instagram",none:"–"}},
 tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Seni bulan parçaları topla.",
  start:"Başla",closed:"Özel talepler şu an kapalı – yoğunluk var. Lütfen biraz sonra tekrar bak!",ready:"Yeni YOU Parçalarını keşfet",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
@@ -186,7 +186,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Seni bulan parçaları topla
  end:"Hikâyen. Sayfaların. Parçaların.",by:"LipYourZip Art'tan.",
  what:{journal:"Kişiye özel Pieces of YOU günlüğü",planner:"Kişiye özel defter ya da planlayıcı",coloring:"Siyah-beyaz boyama kitabı",calendar:"Kişiye özel takvim",bookmark:"Kişiye özel kitap ayracı",caricature:"Karikatür ya da illüstrasyon",tattoo:"Kişiye özel dövme tasarımı",invitation:"Davetiye (düğün, doğum günü, etkinlik)",poster:"Afiş ya da baskı tasarımı",product:"Kişiye özel ürün tasarımı",other:"Başka bir şey"},
  who:{myself:"Kendim için",someone:"Başka biri için",both:"Hem kendim hem başkası için"},
- occ:{birthday:"Doğum günü",anniversary:"Yıl dönümü (evlilik, nişan, arkadaşlık…)",wedding:"Düğün ya da nişan",work:"Yeni iş ya da mezuniyet",baby:"Bebek",valentine:"Sevgililer Günü",parents:"Anneler Günü / Babalar Günü",thanks:"Teşekkür",halloween:"Cadılar Bayramı",other:"İçimden geldi / Diğer"},
+ occ:{birthday:"Doğum günü",anniversary:"Yıl dönümü",wedding:"Düğün",engagement:"Nişan",valentine:"Sevgililer Günü",mother:"Anneler Günü",father:"Babalar Günü",job:"Yeni iş",graduation:"Mezuniyet",baby:"Yeni bebek",thanks:"Teşekkür",halloween:"Cadılar Bayramı",other:"İçimden geldi / Diğer"},
  sum:{ask:"Sorular",quote:"Basılı kopya: EVET – teklif istiyor",digital:"Basılı kopya: HAYIR – sadece dijital",photos:"Fotoğraf linki",title:"Pieces of YOU – Özel Talep",what:"Talep",who:"Kimin için",occ:"Vesile",more:"Vesile hakkında",idea:"Fikir",person:"Bu kişi hakkında",explore:"Kitap neleri keşfetsin",lang:"Kitabın dili",date:"İstenen tarih",name:"Ad",mail:"E-posta",ig:"Instagram",none:"–"}}};
 
 var lang=(navigator.language||"en").toLowerCase().indexOf("tr")===0?"tr":"en";
