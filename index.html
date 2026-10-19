@@ -267,7 +267,7 @@ function render(){
   }else if(cur==="what"){
     qHead(body,d.qWhat);body.appendChild(chipGroup(WHAT,d.what,"what",true));var dsc=el("p","desc",A.what?(d.whatDesc[A.what]||""):"");dsc.setAttribute("aria-live","polite");body.appendChild(dsc);body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="who"){
-    qHead(body,d.qWho);body.appendChild(chipGroup(["myself","someone"],d.who,"who",false));var wm=inp("whoMore","text",d.qWhoMore);wm.setAttribute("data-more","who:someone");wm.hidden=A.who!=="someone";body.appendChild(wm);var sm=inp("selfMore","text",d.qSelfMore);sm.setAttribute("data-more","who:myself");sm.hidden=A.who!=="myself";body.appendChild(sm);body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
+    qHead(body,d.qWho);body.appendChild(chipGroup(["myself","someone"],d.who,"who",false));var wm=inp("whoMore","text",d.qWhoMore);wm.setAttribute("data-more","who:someone");wm.hidden=A.who!=="someone";body.appendChild(wm);body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="occ"){
     qHead(body,d.qOcc,d.hOcc);body.appendChild(chipGroup(OCC,d.occ,"occ",false));
     var m=inp("more","text",d.qMore);m.setAttribute("data-more","occ:*");m.hidden=!A.occ;body.appendChild(m);
