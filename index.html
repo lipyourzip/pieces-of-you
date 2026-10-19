@@ -146,7 +146,7 @@ var OCC=["birthday","anniversary","valentine","mother","father","halloween","fri
 var T={
 en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds you.",
  start:"Start",closed:"Custom requests are paused right now – I'm fully booked. Please check back soon!",ready:"Explore new YOU Pieces",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
- introT:"Custom journals, drawings & designs.",intro1:"Made for one person, one memory, one story or one special occasion.",
+ introT:"Custom designs, drawings & journals made from YOUR story.",intro1:"For one person. One memory. One special day.",
  intro2:"Tell me about YOU, or the person it's for. Write what's on your mind and in your heart. Your story becomes the inspiration.",
  intro3:"Every piece is created individually, just for YOU.",offerMore:"Or whatever you have in mind…",
  howT:"How it works",s1:"Send a custom request.",s2:"Tell me about YOU, or the person it's for. Write what's on your mind and in your heart.",
@@ -168,8 +168,8 @@ en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds 
  sum:{ask:"Questions",quote:"Printed copy: YES – please send a quote",digital:"Printed copy: NO – digital only",photos:"Photo link",title:"Pieces of YOU – Custom Request",what:"Request",who:"Who is it for",occ:"Occasion",more:"More about the occasion",idea:"Idea",person:"About this person",explore:"What the book should explore",lang:"Book language",date:"Needed by",name:"Name",mail:"Email",ig:"Instagram",none:"–"}},
 tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Seni bulan parçaları topla.",
  start:"Başla",closed:"Özel talepler şu an kapalı – yoğunluk var. Lütfen biraz sonra tekrar bak!",ready:"Yeni YOU Parçalarını keşfet",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
- introT:"Kişiye özel günlük, çizim ve tasarımlar.",intro1:"Tek bir kişi, bir anı, bir hikâye ya da özel bir gün için hazırlanır.",
- intro2:"Bana SEN'i ya da O kişiyi anlat; aklından, kalbinden geçenleri yaz. Hikâyen bana ilham olur.",
+ introT:"SENİN hikâyenden doğan, kişiye özel tasarımlar, çizimler ve günlükler.",intro1:"Bir kişi için. Bir anı için. Özel bir gün için.",
+ intro2:"Bana SEN'i ya da hediye edeceğin kişiyi anlat. Aklından, kalbinden geçenleri yaz. Hikâyen bana ilham olur.",
  intro3:"Her parça tek tek, sadece SEN için hazırlanır.",offerMore:"Ya da aklından ne geçiyorsa…",
  howT:"Nasıl işliyor",s1:"Özel bir talep gönder.",s2:"Bana SEN'i ya da O kişiyi anlat; aklından, kalbinden geçenleri yaz.",
  s3:"Sana fiyatı ve teslim tarihini iletirim (en geç 10 gün içinde).",s4:"Onaylarsan, ödeme bağlantısını Shopier üzerinden gönderirim.",s5:"Ödemen onaylanınca hazırlamaya başlarım.",s6:"Tüm baskılar dijitaldir ve baskıya hazırdır.",s7:"Basılı kopya istiyorsan teklif isteyebilirsin.",printT:"Dijital mi, basılı mı?",printH:"Tüm baskılar dijital teslim edilir. Basılı kopya istersen sana teklif göndereyim. (isteğe bağlı)",lDigital:"Sadece dijital",
@@ -253,7 +253,7 @@ function render(){
     body.appendChild(el("p","tag",d.tag));body.appendChild(el("p","tag2",d.tag2));var rd=el("a","ready",d.ready);rd.href="https://www.shopier.com/lipyourzipart";rd.target="_blank";rd.rel="noopener";
     pg.appendChild(body);var nav=el("div","nav solo");if(OPEN){var b=el("button","btn",d.start);b.type="button";b.addEventListener("click",function(){go(1);});nav.appendChild(b);}else{nav.appendChild(el("p","closed",d.closed));}pg.appendChild(nav);pg.appendChild(rd);pg.appendChild(brand());pg.classList.add("cover");
   }else if(cur==="about"){
-    var s=el("div","stack about");s.appendChild(el("p","lead ttl",d.introT));s.appendChild(el("p","",d.intro1));var parts=d.intro2.split(/(?<=[.!?])\s+/);parts.forEach(function(t){s.appendChild(el("p","",t));});
+    var s=el("div","stack about");s.appendChild(el("p","lead ttl",d.introT));var p1=el("p","",d.intro1.split(/(?<=[.!?])\s+/).join("\n"));p1.style.whiteSpace="pre-line";s.appendChild(p1);var parts=d.intro2.split(/(?<=[.!?])\s+/);parts.forEach(function(t){s.appendChild(el("p","",t));});
     s.appendChild(el("p","note",d.intro3));
     body.appendChild(s);pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="about2"){
