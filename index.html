@@ -142,7 +142,7 @@ textarea{min-height:clamp(110px,24svh,200px);resize:vertical;line-height:1.55;
 (function(){
 var KEY="eeb58ba4-4e6a-449b-b6c1-ed918c5f6670";
 var WHAT=["journal","caricature","tattoo","coloring","invitation","planner","calendar","bookmark","poster","product","other"];
-var OCC=["birthday","anniversary","valentine","mother","father","halloween","friendship","other"];
+var OCC=["birthday","anniversary","wedding","work","baby","valentine","parents","thanks","halloween","other"];
 var T={
 en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds you.",
  start:"Start",closed:"Custom requests are paused right now – I'm fully booked. Please check back soon!",ready:"Explore new YOU Pieces",next:"Next",back:"Back",send:"Send request",sending:"Sending…",
@@ -152,7 +152,7 @@ en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds 
  howT:"How it works",s1:"Send a custom request and tell me your story.",s2:"Tell me about YOU, or the person it's for. Write what's on your mind and in your heart.",
  s3:"I'll send you the price and delivery date (within 10 days).",s4:"Once you confirm, I'll send you a Shopier payment link.",s5:"I start creating as soon as your payment is confirmed.",s6:"All editions are digital and print-ready.",s7:"If you want a printed copy, you can ask for a quote.",printT:"Digital or printed?",printH:"All editions are delivered digitally. Want a printed copy? I'll send you a quote. (optional)",lDigital:"Digital only",
  avail:"Want a printed copy? You can ask for a quote on the date page.",
- whatDesc:{journal:"A journal full of questions to write, draw and paint, made around you or someone you love.",planner:"A notebook or planner made your way, cover and pages included.",coloring:"Pages drawn from your story, ready to color.",calendar:"A calendar built around your own images and dates.",bookmark:"A bookmark designed just for your books.",caricature:"A custom drawing of you or someone you love.",tattoo:"A one-of-a-kind tattoo design from your story, ready to take to your tattoo artist.",invitation:"A one-of-a-kind invitation for a wedding, birthday or event.",poster:"A poster or print design for your wall.",product:"A print-ready design for t-shirts, tote bags, mugs and more.",other:"Another idea? Tell me and we'll figure it out."},qWhat:"What would you like me to create?",qWho:"Who is it for?",qWhoMore:"Please specify (my partner, my son, my daughter, my friend, my mom, my dad…)",qSelfMore:"Treating myself, just because, I'll leave it to you… (optional)",qOcc:"What's this piece for?",hOcc:"(optional)",qMore:"Tell me more (optional)",qAsk:"Any questions for me?",hAsk:"Ask me anything before you send your request: price, timing, ideas… (optional)",
+ whatDesc:{journal:"A journal full of questions to write, draw and paint, made around you or someone you love.",planner:"A notebook or planner made your way, cover and pages included.",coloring:"Pages drawn from your story, ready to color.",calendar:"A calendar built around your own images and dates.",bookmark:"A bookmark designed just for your books.",caricature:"A custom drawing of you or someone you love.",tattoo:"A one-of-a-kind tattoo design from your story, ready to take to your tattoo artist.",invitation:"A one-of-a-kind invitation for a wedding, birthday or event.",poster:"A poster or print design for your wall.",product:"A print-ready design for t-shirts, tote bags, mugs and more.",other:"Another idea? Tell me and we'll figure it out."},qWhat:"What would you like me to create?",qWho:"Who is it for?",qWhoMore:"Please specify (my partner, my kids, my parents, my sister, my friend…)",qSelfMore:"Treating myself, just because, I'll leave it to you… (optional)",qOcc:"What's this piece for?",hOcc:"(optional)",qMore:"What's it about? (optional)",qAsk:"Any questions for me?",hAsk:"Ask me anything before you send your request: price, timing, ideas… (optional)",
  qIdea:"Tell me about your idea",hIdea:"What do you have in mind? Style, size, colors, references, anything that helps.",hIdeaTattoo:"What should it mean to YOU? Tell me the story, where on your body it will go, the size, and the style (fine line, minimal, bold…). I design it, your tattoo artist does the tattoo.",
  qPerson:"Tell me about them.",hPerson:"Who are they to YOU? What do they love? What makes them laugh?",qPersonSelf:"Tell me about YOU.",hPersonSelf:"What do you love? What makes you laugh? What makes you, YOU?",
  qExplore:"What would you like this book to explore?",hExplore:"A memory, a feeling, a joke only the two of you get, a dream… (optional)",
@@ -163,8 +163,8 @@ en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds 
  thank:"Thank YOU –",thP:"Your request has reached me. I'll get back to you as soon as possible.",chan:"Join to collect new pieces",
  end:"Your story. Your pages. Your pieces.",by:"By LipYourZip Art.",
  what:{journal:"A custom Pieces of YOU journal",planner:"A custom notebook or planner",coloring:"A black-and-white coloring book",calendar:"A custom calendar",bookmark:"A custom bookmark",caricature:"A caricature or illustration",tattoo:"A custom tattoo design",invitation:"An invitation (wedding, birthday, event)",poster:"A poster or print design",product:"A custom design (t-shirt, tote bag, mug…)",other:"Something else"},
- who:{myself:"For myself",someone:"For someone else"},
- occ:{birthday:"Birthday",anniversary:"Anniversary",valentine:"Valentine's Day",mother:"Mother's Day",father:"Father's Day",halloween:"Halloween",friendship:"Friendship",other:"Other / Just because"},
+ who:{myself:"For myself",someone:"For someone else",both:"For me and someone else"},
+ occ:{birthday:"Birthday",anniversary:"Anniversary (wedding, engagement, friendship…)",wedding:"Wedding or engagement",work:"New job or graduation",baby:"New baby",valentine:"Valentine's Day",parents:"Mother's Day / Father's Day",thanks:"Thank you",halloween:"Halloween",other:"Just because / Other"},
  sum:{ask:"Questions",quote:"Printed copy: YES – please send a quote",digital:"Printed copy: NO – digital only",photos:"Photo link",title:"Pieces of YOU – Custom Request",what:"Request",who:"Who is it for",occ:"Occasion",more:"More about the occasion",idea:"Idea",person:"About this person",explore:"What the book should explore",lang:"Book language",date:"Needed by",name:"Name",mail:"Email",ig:"Instagram",none:"–"}},
 tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Seni bulan parçaları topla.",
  start:"Başla",closed:"Özel talepler şu an kapalı – yoğunluk var. Lütfen biraz sonra tekrar bak!",ready:"Yeni YOU Parçalarını keşfet",next:"İleri",back:"Geri",send:"Talebi gönder",sending:"Gönderiliyor…",
@@ -174,7 +174,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Seni bulan parçaları topla
  howT:"Nasıl işliyor",s1:"Özel talebini gönder ve hikâyeni anlat.",s2:"Bana SEN'i ya da hediye edeceğin kişiyi anlat.\nAklından, kalbinden geçenleri yaz.",
  s3:"Sana fiyatı ve teslim tarihini iletirim (en geç 10 gün içinde).",s4:"Onaylarsan, ödeme bağlantısını Shopier üzerinden gönderirim.",s5:"Ödemen onaylanınca hazırlamaya başlarım.",s6:"Tüm baskılar dijitaldir ve baskıya hazırdır.",s7:"Basılı kopya istiyorsan teklif isteyebilirsin.",printT:"Dijital mi, basılı mı?",printH:"Tüm baskılar dijital teslim edilir. Basılı kopya istersen sana teklif göndereyim. (isteğe bağlı)",lDigital:"Sadece dijital",
  avail:"Basılı kopya mı istiyorsun? Tarih sayfasında teklif isteyebilirsin.",
- whatDesc:{journal:"Yazıp, çizip, boyayabileceğin sorularla dolu, sana ya da sevdiğin birine özel günlük.",planner:"Sana göre hazırlanmış, kapağı ve içeriği özel defter ya da planlayıcı.",coloring:"Hikâyenden çizilen, boyayabileceğin sayfalar.",calendar:"Sana özel görseller ve günlerle hazırlanan takvim.",bookmark:"Kitaplarına eşlik edecek, sana özel tasarlanmış kitap ayracı.",caricature:"Kendini ya da sevdiğin birini anlatan kişiye özel çizim.",tattoo:"Hikâyenden doğan, dövme sanatçına götürmeye hazır kişiye özel dövme tasarımı.",invitation:"Düğün, doğum günü ya da etkinlik için özel davetiye.",poster:"Duvara ya da baskıya uygun afiş ve baskı tasarımı.",product:"T-shirt, bez çanta, kupa gibi ürünler için baskıya hazır tasarım.",other:"Aklındaki başka bir fikir; bana anlat, birlikte bakarız."},qWhat:"Ne hazırlamamı istersin?",qWho:"Kimin için?",qWhoMore:"Lütfen belirt (sevgilim, oğlum, kızım, arkadaşım, annem, babam…)",qSelfMore:"Kendimi şımartmak istiyorum, içimden geldi, sana bırakıyorum… (isteğe bağlı)",qOcc:"Bu parça ne için?",hOcc:"(isteğe bağlı)",qMore:"Biraz daha anlat (isteğe bağlı)",qAsk:"Bana sormak istediğin bir şey var mı?",hAsk:"Talebini göndermeden önce merak ettiklerini sorabilirsin: fiyat, süre, fikirler… (isteğe bağlı)",
+ whatDesc:{journal:"Yazıp, çizip, boyayabileceğin sorularla dolu, sana ya da sevdiğin birine özel günlük.",planner:"Sana göre hazırlanmış, kapağı ve içeriği özel defter ya da planlayıcı.",coloring:"Hikâyenden çizilen, boyayabileceğin sayfalar.",calendar:"Sana özel görseller ve günlerle hazırlanan takvim.",bookmark:"Kitaplarına eşlik edecek, sana özel tasarlanmış kitap ayracı.",caricature:"Kendini ya da sevdiğin birini anlatan kişiye özel çizim.",tattoo:"Hikâyenden doğan, dövme sanatçına götürmeye hazır kişiye özel dövme tasarımı.",invitation:"Düğün, doğum günü ya da etkinlik için özel davetiye.",poster:"Duvara ya da baskıya uygun afiş ve baskı tasarımı.",product:"T-shirt, bez çanta, kupa gibi ürünler için baskıya hazır tasarım.",other:"Aklındaki başka bir fikir; bana anlat, birlikte bakarız."},qWhat:"Ne hazırlamamı istersin?",qWho:"Kimin için?",qWhoMore:"Lütfen belirt (sevgilim, çocuklarım, anne babam, kardeşim, arkadaşım…)",qSelfMore:"Kendimi şımartmak istiyorum, içimden geldi, sana bırakıyorum… (isteğe bağlı)",qOcc:"Bu parça ne için?",hOcc:"(isteğe bağlı)",qMore:"Neyle ilgili? (isteğe bağlı)",qAsk:"Bana sormak istediğin bir şey var mı?",hAsk:"Talebini göndermeden önce merak ettiklerini sorabilirsin: fiyat, süre, fikirler… (isteğe bağlı)",
  qIdea:"Fikrini anlat",hIdea:"Aklında ne var? Stil, boyut, renkler, referanslar, işime yarayacak her şey.",hIdeaTattoo:"Senin için ne anlam taşımalı? Hikâyeni, vücudunda nereye yapılacağını, boyutunu ve stilini (ince çizgi, minimal, kalın…) anlat. Tasarımı ben yaparım, dövmeyi dövme sanatçın yapar.",
  qPerson:"O kişiyi biraz anlat.",hPerson:"Senin için kim? Neleri sever? Neye güler?",qPersonSelf:"Kendini biraz anlat.",hPersonSelf:"Neleri seversin? Neye gülersin? Seni sen yapan ne?",
  qExplore:"Bu kitap neleri keşfetsin istersin?",hExplore:"Bir anı, bir his, sadece ikinizin anladığı bir espri, bir hayal… (isteğe bağlı)",
@@ -185,8 +185,8 @@ tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Seni bulan parçaları topla
  thank:"Teşekkürler –",thP:"Talebin bana ulaştı. Sana en kısa sürede döneceğim.",chan:"Yeni parçaları toplamak için katıl",
  end:"Hikâyen. Sayfaların. Parçaların.",by:"LipYourZip Art'tan.",
  what:{journal:"Kişiye özel Pieces of YOU günlüğü",planner:"Kişiye özel defter ya da planlayıcı",coloring:"Siyah-beyaz boyama kitabı",calendar:"Kişiye özel takvim",bookmark:"Kişiye özel kitap ayracı",caricature:"Karikatür ya da illüstrasyon",tattoo:"Kişiye özel dövme tasarımı",invitation:"Davetiye (düğün, doğum günü, etkinlik)",poster:"Afiş ya da baskı tasarımı",product:"Kişiye özel tasarım (t-shirt, bez çanta, kupa…)",other:"Başka bir şey"},
- who:{myself:"Kendim için",someone:"Başka biri için"},
- occ:{birthday:"Doğum günü",anniversary:"Yıl dönümü",valentine:"Sevgililer Günü",mother:"Anneler Günü",father:"Babalar Günü",halloween:"Cadılar Bayramı",friendship:"Arkadaşlık",other:"Diğer / İçimden geldi"},
+ who:{myself:"Kendim için",someone:"Başka biri için",both:"Hem kendim hem başkası için"},
+ occ:{birthday:"Doğum günü",anniversary:"Yıl dönümü (evlilik, nişan, arkadaşlık…)",wedding:"Düğün ya da nişan",work:"Yeni iş ya da mezuniyet",baby:"Bebek",valentine:"Sevgililer Günü",parents:"Anneler Günü / Babalar Günü",thanks:"Teşekkür",halloween:"Cadılar Bayramı",other:"İçimden geldi / Diğer"},
  sum:{ask:"Sorular",quote:"Basılı kopya: EVET – teklif istiyor",digital:"Basılı kopya: HAYIR – sadece dijital",photos:"Fotoğraf linki",title:"Pieces of YOU – Özel Talep",what:"Talep",who:"Kimin için",occ:"Vesile",more:"Vesile hakkında",idea:"Fikir",person:"Bu kişi hakkında",explore:"Kitap neleri keşfetsin",lang:"Kitabın dili",date:"İstenen tarih",name:"Ad",mail:"E-posta",ig:"Instagram",none:"–"}}};
 
 var lang=(navigator.language||"en").toLowerCase().indexOf("tr")===0?"tr":"en";
@@ -208,7 +208,7 @@ function chipGroup(keys,labels,key,col){
       Array.prototype.forEach.call(box.children,function(c){c.setAttribute("aria-pressed","false");});
       b.setAttribute("aria-pressed",off?"false":"true");
       var er=stage.querySelector(".err");if(er)er.classList.remove("on");
-      Array.prototype.forEach.call(stage.querySelectorAll("[data-more]"),function(m){var kv=m.getAttribute("data-more").split(":");m.hidden=kv[1]==="*"?!A[kv[0]]:A[kv[0]]!==kv[1];});
+      Array.prototype.forEach.call(stage.querySelectorAll("[data-more]"),function(m){var kv=m.getAttribute("data-more").split(":");m.hidden=kv[1]==="*"?!A[kv[0]]:kv[1].split("|").indexOf(A[kv[0]])<0;});
       if(key==="what"){renderNumber();var dd=stage.querySelector(".desc");if(dd)dd.textContent=A.what?(D().whatDesc[A.what]||""):"";}
     });
     box.appendChild(b);});
@@ -267,10 +267,10 @@ function render(){
   }else if(cur==="what"){
     qHead(body,d.qWhat);body.appendChild(chipGroup(WHAT,d.what,"what",true));var dsc=el("p","desc",A.what?(d.whatDesc[A.what]||""):"");dsc.setAttribute("aria-live","polite");body.appendChild(dsc);body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="who"){
-    qHead(body,d.qWho);body.appendChild(chipGroup(["myself","someone"],d.who,"who",false));var wm=inp("whoMore","text",d.qWhoMore);wm.setAttribute("data-more","who:someone");wm.hidden=A.who!=="someone";body.appendChild(wm);body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
+    qHead(body,d.qWho);body.appendChild(chipGroup(["myself","someone","both"],d.who,"who",false));var wm=inp("whoMore","text",d.qWhoMore);wm.setAttribute("data-more","who:someone|both");wm.hidden=A.who!=="someone"&&A.who!=="both";body.appendChild(wm);body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="occ"){
     qHead(body,d.qOcc,d.hOcc);body.appendChild(chipGroup(OCC,d.occ,"occ",false));
-    var m=inp("more","text",d.qMore);m.setAttribute("data-more","occ:*");m.hidden=!A.occ;body.appendChild(m);
+    var m=inp("more","text",d.qMore);m.setAttribute("data-more","occ:other");m.hidden=A.occ!=="other";body.appendChild(m);
     pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="idea"){
     qHead(body,d.qIdea,A.what==="tattoo"?d.hIdeaTattoo:d.hIdea);body.appendChild(textArea("idea"));body.appendChild(inp("photos","text",d.lPhotos));body.appendChild(el("p","hint",d.hPhotos));body.appendChild(errP(d.eText));pg.appendChild(body);pg.appendChild(navBtns(false));
@@ -325,8 +325,8 @@ function go(dir){if(!OPEN&&cur==='cover')return;
 }
 function summary(){
   var d=D(),s=d.sum,v=function(x){x=(x||"").trim();return x?x:s.none;};
-  var L=[s.title,"",s.what+": "+d.what[A.what],s.who+": "+d.who[A.who]+((A.who==="someone"&&(A.whoMore||"").trim())?" – "+A.whoMore.trim():(A.who==="myself"&&(A.selfMore||"").trim())?" – "+A.selfMore.trim():""),s.occ+": "+v(A.occ?d.occ[A.occ]:"")];
-  if((A.more||"").trim())L.push(s.more+": "+A.more.trim());
+  var L=[s.title,"",s.what+": "+d.what[A.what],s.who+": "+d.who[A.who]+(((A.who==="someone"||A.who==="both")&&(A.whoMore||"").trim())?" – "+A.whoMore.trim():(A.who==="myself"&&(A.selfMore||"").trim())?" – "+A.selfMore.trim():""),s.occ+": "+v(A.occ?d.occ[A.occ]:"")];
+  if(A.occ==="other"&&(A.more||"").trim())L.push(s.more+": "+A.more.trim());
   L.push("",s.idea+":",v(A.idea));if((A.photos||"").trim())L.push("",s.photos+": "+A.photos.trim());
   if(A.what==="journal")L.push("",s.person+":",v(A.person),"",s.explore+":",v(A.explore),"",s.lang+": "+A.blang);
   if(A.quote==="yes")L.push("",s.quote);else if(A.quote==="no")L.push("",s.digital);if((A.ask||"").trim())L.push("",s.ask+":",A.ask.trim());L.push("",s.date+": "+v(A.date),s.name+": "+v(A.name),s.mail+": "+v(A.mail),s.ig+": "+v(A.ig));
