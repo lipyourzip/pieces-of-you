@@ -64,7 +64,7 @@ h2{font-size:1.53em;line-height:1.2;font-weight:700;text-wrap:balance}
 .steps{list-style:none;padding:0;display:grid;gap:.7em;margin-top:.9em}
 .steps li{display:grid;grid-template-columns:2.4em 1fr;gap:.8em;align-items:center}
 .steps .n{width:2.4em;height:2.4em;border:1.6px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:1em}
-.avail{margin-top:1em;padding:.7em 1em;border:1.6px solid var(--ink);border-radius:16px}
+.jn{display:flex;align-items:center;justify-content:space-between;gap:12px;border:0;padding:0;margin-top:.4em}.jn p{margin:0;font-size:.92em;line-height:1.35}.jn .chan{margin:0;padding:9px 16px;font-size:15px;white-space:nowrap}.avail{margin-top:1em;padding:.7em 1em;border:1.6px solid var(--ink);border-radius:16px}
 
 /* answers */
 .chips{display:flex;flex-wrap:wrap;gap:.5em;margin-top:.7em}
@@ -158,7 +158,7 @@ en:{vol:"CUSTOM EDITION",tag:"Made for YOU. Only YOU.",tag2:"Collect what finds 
  qExplore:"What would you like this book to explore?",hExplore:"A memory, a feeling, a joke only the two of you get, a dream… (optional)",
  qLang:"Which language should the book be in?",qDate:"When do you need it by?",hDate:"Leave it empty if there is no deadline. (optional)",
  qYou:"A little about YOU",lName:"Your name",lMail:"Your email",lIg:"Your Instagram username (optional)",lQuote:"Digital + printed copy (send me a quote)",lPhotos:"Reference images (optional)",lPhotosBy:{caricature:"Photos of the person I'll draw (recommended)",tattoo:"Tattoos you like, and a photo of the spot if you have it (optional)"},hPhotosBy:{caricature:"2–3 clear photos with the face visible and good light are enough. Paste a link to a folder (Google Drive, WeTransfer…). You can also send photos by Instagram DM after submitting."},hPhotos:"Paste a link to a folder (Google Drive, WeTransfer…). You can also send photos by Instagram DM after submitting.",
- eChoose:"Please choose one.",eOrder:"Please enter your Shopier order number.",jShop:"Custom orders are placed on Shopier first. Haven't bought yet?",jBtn:"Buy on Shopier",lOrder:"Shopier order number",hOrder:"You will find it in your Shopier purchase email. Your custom order is prepared after your payment.",eText:"Please write a few words.",eMail:"Please enter a valid email.",eName:"Please write your name.",
+ eChoose:"Please choose one.",eOrder:"Please enter your Shopier order number.",jShop:"Not bought yet? Custom orders start on Shopier.",jBtn:"Buy on Shopier",lOrder:"Shopier order number",hOrder:"It is in your Shopier purchase email.",eText:"Please write a few words.",eMail:"Please enter a valid email.",eName:"Please write your name.",
  eSend:"Something went wrong. Please try again, or send me a message on Instagram @lipyourzipart.",
  thank:"Thank YOU –",thP:"Your request has reached me. I'll get back to you as soon as possible.",chan:"Join to collect new pieces",
  end:"Your story. Your pages. Your pieces.",by:"By LipYourZip Art.",
@@ -180,7 +180,7 @@ tr:{vol:"ÖZEL BASKI",tag:"Sadece SEN için.",tag2:"Seni bulan parçaları topla
  qExplore:"Bu kitap neleri keşfetsin istersin?",hExplore:"Bir anı, bir his, sadece ikinizin anladığı bir espri, bir hayal… (isteğe bağlı)",
  qLang:"Kitap hangi dilde olsun?",qDate:"Ne zamana ihtiyacın var?",hDate:"Bir son tarih yoksa boş bırak. (isteğe bağlı)",
  qYou:"Biraz senden bahset",lName:"Adın",lMail:"E-posta adresin",lIg:"Instagram kullanıcı adın (isteğe bağlı)",lQuote:"Dijital + basılı kopya (teklif gönder)",lPhotos:"Referans görseller (isteğe bağlı)",lPhotosBy:{caricature:"Çizeceğim kişinin fotoğrafları (önerilir)",tattoo:"Beğendiğin dövmeler ve varsa dövmenin yeri (isteğe bağlı)"},hPhotosBy:{caricature:"Yüzünün net göründüğü, ışığı iyi 2-3 fotoğraf yeterli. Bir klasör linki yapıştır (Google Drive, WeTransfer…). Gönderdikten sonra fotoğrafları Instagram DM ile de yollayabilirsin."},hPhotos:"Bir klasör linki yapıştır (Google Drive, WeTransfer…). Gönderdikten sonra fotoğrafları Instagram DM ile de yollayabilirsin.",
- eChoose:"Lütfen birini seç.",eOrder:"Lütfen Shopier sipariş numaranı yaz.",jShop:"Kişiye özel siparişler önce Shopier'den verilir. Henüz almadın mı?",jBtn:"Shopier'e git",lOrder:"Shopier sipariş numarası",hOrder:"Shopier'den gelen satın alma e-postasında yazıyor. Kişiye özel siparişin ödemenden sonra hazırlanır.",eText:"Lütfen birkaç kelime yaz.",eMail:"Lütfen geçerli bir e-posta yaz.",eName:"Lütfen adını yaz.",
+ eChoose:"Lütfen birini seç.",eOrder:"Lütfen Shopier sipariş numaranı yaz.",jShop:"Henüz almadın mı? Özel siparişler Shopier'den başlar.",jBtn:"Shopier'e git",lOrder:"Shopier sipariş numarası",hOrder:"Shopier satın alma e-postanda yazıyor.",eText:"Lütfen birkaç kelime yaz.",eMail:"Lütfen geçerli bir e-posta yaz.",eName:"Lütfen adını yaz.",
  eSend:"Bir sorun oldu. Lütfen tekrar dene ya da Instagram'dan @lipyourzipart'a mesaj at.",
  thank:"Teşekkürler –",thP:"Talebin bana ulaştı. Sana en kısa sürede döneceğim.",chan:"Yeni parçaları toplamak için katıl",
  end:"Hikâyen. Sayfaların. Parçaların.",by:"LipYourZip Art'tan.",
@@ -285,7 +285,7 @@ function render(){
   }else if(cur==="ask"){
     qHead(body,d.qAsk,d.hAsk);body.appendChild(textArea("ask"));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="you"){
-    qHead(body,d.qYou);body.appendChild(inp("name","text",d.lName,"name"));body.appendChild(inp("mail","email",d.lMail,"email"));body.appendChild(inp("ig","text",d.lIg));var ow=inp("orderNo","text",d.lOrder);ow.setAttribute("data-more","what:*");ow.hidden=!A.what;body.appendChild(ow);var oh=el("p","hint",d.hOrder);oh.setAttribute("data-more","what:*");oh.hidden=!A.what;body.appendChild(oh);var jn=el("div","avail");jn.setAttribute("data-more","what:*");jn.hidden=!A.what;jn.appendChild(el("p","",d.jShop));var jb=el("a","chan",d.jBtn);jb.href="https://www.shopier.com/lipyourzipart";jb.addEventListener("click",function(){jb.href="https://www.shopier.com/lipyourzipart"+(SH[A.what]?"/"+SH[A.what]:"");});jb.target="_blank";jb.rel="noopener";jn.appendChild(jb);body.appendChild(jn);
+    qHead(body,d.qYou);body.appendChild(inp("name","text",d.lName,"name"));body.appendChild(inp("mail","email",d.lMail,"email"));body.appendChild(inp("ig","text",d.lIg));var ow=inp("orderNo","text",d.lOrder);ow.setAttribute("data-more","what:*");ow.hidden=!A.what;body.appendChild(ow);var oh=el("p","hint",d.hOrder);oh.setAttribute("data-more","what:*");oh.hidden=!A.what;body.appendChild(oh);var jn=el("div","avail jn");jn.setAttribute("data-more","what:*");jn.hidden=!A.what;jn.appendChild(el("p","",d.jShop));var jb=el("a","chan",d.jBtn);jb.href="https://www.shopier.com/lipyourzipart";jb.addEventListener("click",function(){jb.href="https://www.shopier.com/lipyourzipart"+(SH[A.what]?"/"+SH[A.what]:"");});jb.target="_blank";jb.rel="noopener";jn.appendChild(jb);body.appendChild(jn);
     var bc=el("input");bc.type="checkbox";bc.id="botcheck";bc.tabIndex=-1;bc.setAttribute("aria-hidden","true");bc.style.cssText="position:absolute;left:-9999px";body.appendChild(bc);
     body.appendChild(errP(err||d.eMail));pg.appendChild(body);pg.appendChild(navBtns(true));
   }else if(cur==="done"){
