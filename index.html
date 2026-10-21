@@ -271,7 +271,7 @@ function render(){
     [d.s3,d.s1,d.s4,d.s6,d.s7].forEach(function(t,i){var li=el("li");li.appendChild(el("span","n",String(i+1)));var sp=el("span","",t);sp.style.whiteSpace="pre-line";li.appendChild(sp);ol.appendChild(li);});
     body.appendChild(ol);pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="what"){
-    qHead(body,d.qWhat);body.appendChild(chipGroup(WHAT,d.what,"what",true));pg.addEventListener("click",function(e){if(e.target.closest(".chip,button,a,input,textarea,.nav"))return;var od=pg.querySelector(".opt-detail");if(od)od.remove();});body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
+    qHead(body,d.qWhat);body.appendChild(chipGroup(WHAT,d.what,"what",true));pg.addEventListener("click",function(e){if(e.target.closest(".chip,button,a,input,textarea"))return;var od=pg.querySelector(".opt-detail");if(od)od.remove();});body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="who"){
     qHead(body,d.qWho);body.appendChild(chipGroup(["myself","someone","both","skip"],d.who,"who",false));var wm=inp("whoMore","text",d.qWhoMore);wm.setAttribute("data-more","who:someone");wm.hidden=A.who!=="someone";body.appendChild(wm);var wb=inp("whoBoth","text",d.qWhoBoth);wb.setAttribute("data-more","who:both");wb.hidden=A.who!=="both";body.appendChild(wb);body.appendChild(errP(d.eChoose));pg.appendChild(body);pg.appendChild(navBtns(false));
   }else if(cur==="occ"){
